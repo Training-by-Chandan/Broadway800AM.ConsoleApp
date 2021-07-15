@@ -20,12 +20,41 @@ namespace Broadway800AM.App
             {
                 //DataTypeAndConversionExample();
 
-                ControlStatementExample();
+                //ControlStatementExample();
+
+                LoopingStatementExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void LoopingStatementExample()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (i == 3 || i == 5)
+                    continue;
+                if (i == 10)
+                    break;
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("Enter any string");
+            string str = Console.ReadLine(); ;
+            foreach (var j in str)
+            {
+                Console.WriteLine(j);
+            }
+
+            float[] test = new float[] { 1.54f, 2f, 3, 4, 2555.225f, 6, 7, 8 };
+            float sum = 0;
+            foreach (var t in test)
+            {
+                sum += t;
+                Console.WriteLine(sum);
+            }
         }
 
         private static void ControlStatementExample()
