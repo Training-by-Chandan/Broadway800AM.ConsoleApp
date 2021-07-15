@@ -15,9 +15,88 @@ namespace Broadway800AM.App
         //static method
         private static void Main(string[] args)
         {
-            DataTypeAndConversionExample();
+            //DataTypeAndConversionExample();
+
+            ControlStatementExample();
 
             Console.ReadLine();
+        }
+
+        private static void ControlStatementExample()
+        {
+            //if else
+            Console.WriteLine("Enter Any Number:");
+
+            var num = Convert.ToInt32(Console.ReadLine());
+            string str = "";
+
+            // == equals, != not equals, >= greather than equal to, <= less than equals to, > greater than, < less than
+            if (num == 1)
+                str = "One";
+            else if (num == 2)
+                str = "Two";
+            else
+                str = "Thaha chaina";
+
+            // (condition) ? <True statement> : false statement
+            string strnew = num == 1 ? "One" : num == 2 ? "Two" : "Thaha chaina";
+
+            Console.WriteLine("Enter The Number of Day:");
+            var daysnum = Convert.ToInt32(Console.ReadLine());
+            string daystr = "";
+            switch (daysnum)
+            {
+                case 1:
+                    Console.WriteLine("Sunday");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Monday");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Tuesday");
+                    break;
+
+                case 4:
+                    Console.WriteLine("Wednesday");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Thursday");
+                    break;
+
+                case 6:
+                    Console.WriteLine("Friday");
+                    break;
+
+                case 7:
+                    Console.WriteLine("Saturday");
+                    break;
+
+                default:
+                    Console.Write("No Day");
+                    break;
+            }
+
+            switch (daysnum)
+            {
+                case 1:
+                case 7:
+                    Console.WriteLine("Its a weekend! Enjoy!");
+                    break;
+
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    Console.WriteLine("Its a weekdays! Enjoy your work!");
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private static void DataTypeAndConversionExample()
