@@ -15,10 +15,16 @@ namespace Broadway800AM.App
         //static method
         private static void Main(string[] args)
         {
-            //DataTypeAndConversionExample();
+            var res = "n";
+            do
+            {
+                //DataTypeAndConversionExample();
 
-            ControlStatementExample();
+                ControlStatementExample();
 
+                Console.WriteLine("Do you want to continue more(y/n)?");
+                res = Console.ReadLine();
+            } while (res.ToUpper() == "Y");
             Console.ReadLine();
         }
 
