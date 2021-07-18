@@ -22,12 +22,54 @@ namespace Broadway800AM.App
 
                 //ControlStatementExample();
 
-                LoopingStatementExample();
+                //LoopingStatementExample();
+
+                OperatorOverloadingExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void OperatorOverloadingExample()
+        {
+            int i = 10;
+            int j = 7;
+            var sum = i + j;
+            i++;
+
+            NewClass c1 = new NewClass(5);
+            NewClass c2 = new NewClass(5, "");
+
+            NewClass c3 = new NewClass(4);
+            NewClass c4 = new NewClass(3);
+            NewClass c5 = new NewClass("", 4);
+            NewClass c6 = new NewClass();
+            NewClass c7 = new NewClass("");
+
+            var sumofClass = new NewClass();
+            sumofClass.i = c1.i + c2.i + c3.i;
+            sumofClass.j = c1.j + " " + c2.j + " " + c3.j;
+            sumofClass.k = c1.k + c2.k + c3.k;
+
+            var resSum = c1 + c2 + c3 + c4 + c5 + c6 + c7;
+            c1++;
+            c1++;
+        }
+
+        private static void ClassExample()
+        {
+            NewClass c1 = new NewClass(5);
+            NewClass c2 = new NewClass(5, "");
+            NewClass c3 = new NewClass(4);
+            NewClass c4 = new NewClass(3);
+            NewClass c5 = new NewClass("", 4);
+            NewClass c6 = new NewClass();
+            NewClass c7 = new NewClass("");
+
+            c1.Function1();
+            c1.Function1(11);
         }
 
         private static void LoopingStatementExample()
