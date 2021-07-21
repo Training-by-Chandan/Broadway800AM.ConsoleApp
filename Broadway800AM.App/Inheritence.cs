@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Broadway800AM.App
 {
+    /// <summary>
+    /// Inheritance class
+    /// </summary>
     public class LivingThings
     {
         public LivingThings(int i)
