@@ -8,7 +8,7 @@ namespace Broadway800AM.App.Test
 {
     public class TestClass
     {
-        public static void PublicTest()
+        public void PublicTest()
         {
         }
 

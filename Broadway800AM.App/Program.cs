@@ -24,12 +24,44 @@ namespace Broadway800AM.App
 
                 //LoopingStatementExample();
 
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
+
+                InheritanceExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void InheritanceExample()
+        {
+            LivingThings l1 = new LivingThings();
+            LivingThings l2 = new LivingThings(20);
+
+            Animal a1 = new Animal();
+            Animal a2 = new Animal(20);
+
+            Plant p1 = new Plant();
+            HumanBeing h1 = new HumanBeing();
+            Men m1 = new Men();
+            Women w1 = new Women();
+
+            l1.Eat();
+            l1.Reproduce();
+            l1.FunctionTest();
+            //l1.Respire();
+            //l1.Test();
+
+            a1.Eat();
+            a1.Reproduce();
+            a1.FunctionTest();
+            a1.Test();
+            //a1.Respire();
+
+            p1.Eat();
+            p1.Reproduce();
+            //p1.Respire();
         }
 
         private static void OperatorOverloadingExample()
