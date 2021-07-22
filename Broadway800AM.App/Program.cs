@@ -26,7 +26,9 @@ namespace Broadway800AM.App
 
                 //OperatorOverloadingExample();
 
-                InheritanceExample();
+                //InheritanceExample();
+
+                PolyMorphismExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
@@ -34,9 +36,33 @@ namespace Broadway800AM.App
             Console.ReadLine();
         }
 
+        private static void PolyMorphismExample()
+        {
+            LivingThings l1 = new LivingThings(20);
+            LivingThings a1 = new Animal();
+            LivingThings p1 = new Plant();
+            LivingThings h1 = new HumanBeing();
+            LivingThings m1 = new Men();
+            LivingThings w1 = new Women();
+
+            //l1.Eat();
+            //a1.Eat();
+            //p1.Eat();
+            //h1.Eat();
+            //m1.Eat();
+            //w1.Eat();
+
+            Console.WriteLine();
+            l1.Reproduce();
+            Console.WriteLine();
+            a1.Reproduce();
+            Console.WriteLine();
+            h1.Reproduce();
+        }
+
         private static void InheritanceExample()
         {
-            LivingThings l1 = new LivingThings();
+            //LivingThings l1 = new LivingThings();
             LivingThings l2 = new LivingThings(20);
 
             Animal a1 = new Animal();
@@ -47,9 +73,9 @@ namespace Broadway800AM.App
             Men m1 = new Men();
             Women w1 = new Women();
 
-            l1.Eat();
-            l1.Reproduce();
-            l1.FunctionTest();
+            //l1.Eat();
+            //l1.Reproduce();
+            //l1.FunctionTest();
             //l1.Respire();
             //l1.Test();
 

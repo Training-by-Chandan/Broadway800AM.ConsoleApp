@@ -16,19 +16,19 @@ namespace Broadway800AM.App
             this.i = i;
         }
 
-        private int i;
+        protected int i;
 
         protected void Respire()
         {
             Console.WriteLine("Living thing can respire");
         }
 
-        public void Eat()
+        public virtual void Eat()
         {
             Console.WriteLine("Living thing can Eat");
         }
 
-        public void Reproduce()
+        public virtual void Reproduce()
         {
             Console.WriteLine("Living thing can reproduce");
         }
@@ -50,13 +50,24 @@ namespace Broadway800AM.App
         {
         }
 
+        public override void Eat()
+        {
+            Console.WriteLine("Animal can Eat");
+        }
+
         public void Test()
         {
             Respire();
         }
+
+        public override void Reproduce()
+        {
+            Console.WriteLine("Animal can reproduce");
+            base.Reproduce();
+        }
     }
 
-    public class Plant : LivingThings
+    public sealed class Plant : LivingThings
     {
         public Plant() : base(30)
         {
@@ -65,12 +76,28 @@ namespace Broadway800AM.App
         public Plant(int x) : base(x)
         {
         }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Plant can Eat");
+        }
     }
 
     public class HumanBeing : Animal
     {
         public HumanBeing()
         {
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("Human Being can Eat");
+        }
+
+        public override void Reproduce()
+        {
+            Console.WriteLine("Human can reproduce");
+            base.Reproduce();
         }
     }
 
@@ -79,6 +106,11 @@ namespace Broadway800AM.App
         public Men()
         {
         }
+
+        public void Eat()
+        {
+            Console.WriteLine("Men can Eat");
+        }
     }
 
     public class Women : HumanBeing
@@ -86,5 +118,14 @@ namespace Broadway800AM.App
         public Women()
         {
         }
+
+        public void Eat()
+        {
+            Console.WriteLine("Women can Eat");
+        }
     }
+
+    //public class SomeExtra : Plant, Animal // one class can inherit only one class
+    //{
+    //}
 }
