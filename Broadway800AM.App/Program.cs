@@ -28,12 +28,48 @@ namespace Broadway800AM.App
 
                 //InheritanceExample();
 
-                PolyMorphismExample();
+                //PolyMorphismExample();
+
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Press 1 for Square\nPress 2 for Rectangle\npress 3 for equilateral triangle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var s = GetShape(choice);
+
+            s.GetInput();
+            s.Perimeter();
+            s.Area();
+        }
+
+        private static IShape GetShape(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new Square();
+                    break;
+
+                case 2:
+                    return new Rectangle();
+                    break;
+
+                case 3:
+                    return new EquilateralTriangle();
+                    break;
+
+                default:
+                    return null;
+                    break;
+            }
         }
 
         private static void PolyMorphismExample()
