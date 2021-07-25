@@ -30,12 +30,49 @@ namespace Broadway800AM.App
 
                 //PolyMorphismExample();
 
-                InterfaceExample();
+                //InterfaceExample();
+
+                //PropertiesExample();
+
+                StaticAndNonStaticExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void StaticAndNonStaticExample()
+        {
+            //StaticClass st = new StaticClass(); // this is not possible
+            StaticClass.i = 20;
+            StaticClass.FirstName = "Kasturi";
+            StaticClass.FunctionOne();
+
+            NonStaticClass Obj1 = new NonStaticClass();
+            Obj1.ObjectName = "Object One";
+            NonStaticClass Obj2 = new NonStaticClass();
+            Obj2.ObjectName = "Object Two";
+            NonStaticClass Obj3 = new NonStaticClass();
+            Obj3.ObjectName = "Object Three";
+            NonStaticClass Obj4 = new NonStaticClass();
+            Obj4.ObjectName = "Object Four";
+
+            Obj1.AddByOne();
+            Obj2.AddByOne();
+            NonStaticClass.i = 30;
+            Obj3.AddByOne();
+            Obj4.AddByOne();
+        }
+
+        private static void PropertiesExample()
+        {
+            TestClass t = new TestClass("Chandan", "Kumar", "Bhagat");
+
+            Console.WriteLine("Enter the Math Marks");
+            t.MathMarks = Convert.ToSingle(Console.ReadLine());
+
+            Console.WriteLine(t.FullName + "\nMath Marks => " + t.MathMarks);
         }
 
         private static void InterfaceExample()
