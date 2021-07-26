@@ -34,12 +34,47 @@ namespace Broadway800AM.App
 
                 //PropertiesExample();
 
-                StaticAndNonStaticExample();
+                //StaticAndNonStaticExample();
+
+                AbstractExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void AbstractExample()
+        {
+            Console.WriteLine("Press 1 for square abs\nPress 2 for rectangle abs\nPress 3 for circle abs");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            var shape = GetShapeAbs(choice);
+            //var s = new ShapeAbs(); //object cannot be created for abstract class
+            if (shape != null)
+            {
+                shape.GetInput();
+                shape.Perimeter();
+                shape.Area();
+            }
+        }
+
+        private static ShapeAbs GetShapeAbs(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new SquareAbs();
+
+                case 2:
+                    return new RectangleAbs();
+
+                case 3:
+                    return new CircleAbs();
+
+                default:
+                    return null;
+                    break;
+            }
         }
 
         private static void StaticAndNonStaticExample()

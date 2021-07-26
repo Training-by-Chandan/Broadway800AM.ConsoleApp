@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractClass.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="Program.cs" />
