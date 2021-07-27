@@ -36,12 +36,78 @@ namespace Broadway800AM.App
 
                 //StaticAndNonStaticExample();
 
-                AbstractExample();
+                //AbstractExample();
+
+                //StackExample();
+
+                //DynamicStackExample();
+
+                CustomStackGenericExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void CustomStackGenericExample()
+        {
+            CustomDynamicStackGeneric<int> csd1 = new CustomDynamicStackGeneric<int>();
+            csd1.Push(1);
+            CustomDynamicStackGeneric<string> csd2 = new CustomDynamicStackGeneric<string>();
+            csd2.Push("One");
+
+            CustomDynamicStackGeneric<Student> csd3 = new CustomDynamicStackGeneric<Student>();
+            csd3.Push(new Student());
+        }
+
+        private static void DynamicStackExample()
+        {
+            CustomDynamicStack cs = new CustomDynamicStack();
+            Console.WriteLine("After pushing one, two three, four");
+            cs.Push("One");
+            cs.Push("Two");
+            cs.Push("Three");
+            cs.Push("Four");
+            cs.DisplayAllItems();
+            Console.WriteLine("After popping 3 times");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAllItems();
+            Console.WriteLine("After pushing Five, six, seven, eight, nine");
+            cs.Push("Five");
+            cs.Push("Six");
+            cs.Push("Seven");
+            cs.Push("Eight");
+            cs.Push("Nine");
+            cs.Push("Ten");
+            cs.Push("Eleven");
+            cs.Push("Twelve");
+            cs.DisplayAllItems();
+        }
+
+        private static void StackExample()
+        {
+            CustomStack cs = new CustomStack(100);
+            Console.WriteLine("After pushing one, two three, four");
+            cs.Push("One");
+            cs.Push("Two");
+            cs.Push("Three");
+            cs.Push("Four");
+            cs.DisplayAllItems();
+            Console.WriteLine("After popping 3 times");
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAllItems();
+            Console.WriteLine("After pushing Five, six, seven, eight, nine");
+            cs.Push("Five");
+            cs.Push("Six");
+            cs.Push("Seven");
+            cs.Push("Eight");
+            cs.Push("Nine");
+            cs.DisplayAllItems();
         }
 
         private static void AbstractExample()
