@@ -81,7 +81,7 @@ namespace Broadway800AM.App
         }
     }
 
-    public class CustomDynamicStackGeneric<T>
+    public class CustomDynamicStackGeneric<T> where T : IShapesOperation
     {
         private T[] container = new T[0];
 
@@ -105,9 +105,42 @@ namespace Broadway800AM.App
         }
     }
 
+    public struct newStruct
+    {
+        public int i;
+        public string j;
+        public char k;
+    }
+
     public class Student
     {
         public int id { get; set; }
         public string Name { get; set; }
+    }
+
+    public class GenericOne<T1, T2>
+        where T1 : struct
+        where T2 : IShapesOperation
+    {
+        public T1 Variable1;
+        public T2 Variable2;
+
+        public void FunctionOne(T1 item1, T2 item2)
+        {
+            Console.WriteLine($"Type of item1={item1.GetType()}");
+            Console.WriteLine($"Type of item2={item2.GetType()}");
+        }
+    }
+
+    public class GenericTwo
+    {
+        public void FunctionOne<T1, T2>(T1 item1, T2 item2, T1 item3)
+            where T1 : class
+            where T2 : struct
+        {
+            Console.WriteLine($"Type of item1={item1.GetType()}");
+            Console.WriteLine($"Type of item2={item2.GetType()}");
+            Console.WriteLine($"Type of item3={item3.GetType()}");
+        }
     }
 }

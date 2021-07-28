@@ -52,13 +52,26 @@ namespace Broadway800AM.App
 
         private static void CustomStackGenericExample()
         {
-            CustomDynamicStackGeneric<int> csd1 = new CustomDynamicStackGeneric<int>();
-            csd1.Push(1);
-            CustomDynamicStackGeneric<string> csd2 = new CustomDynamicStackGeneric<string>();
-            csd2.Push("One");
+            //CustomDynamicStackGeneric<int> csd1 = new CustomDynamicStackGeneric<int>();
+            //csd1.Push(1);
+            //CustomDynamicStackGeneric<newStruct> csd2 = new CustomDynamicStackGeneric<newStruct>();
+            ////csd2.Push("One");
 
-            CustomDynamicStackGeneric<Student> csd3 = new CustomDynamicStackGeneric<Student>();
-            csd3.Push(new Student());
+            //CustomDynamicStackGeneric<Student> csd3 = new CustomDynamicStackGeneric<Student>();
+            //csd3.Push(new Student());
+
+            //CustomDynamicStackGeneric<HumanBeing> csd4 = new CustomDynamicStackGeneric<HumanBeing>();
+            //HumanBeing h1 = new Men();
+            //csd4.Push(h1);
+
+            CustomDynamicStackGeneric<Square> csd5 = new CustomDynamicStackGeneric<Square>();
+            //GenericOne<string, Square> genericOne = new GenericOne<string, Square>();
+            //genericOne.FunctionOne("", new Square());
+            //GenericOne<Square, string> genericTwo = new GenericOne<Square, string>();
+            //genericTwo.FunctionOne(new Square(), "");
+            GenericOne<int, Square> g1 = new GenericOne<int, Square>();
+            GenericTwo g2 = new GenericTwo();
+            g2.FunctionOne<string, int>("", 10, "");
         }
 
         private static void DynamicStackExample()
