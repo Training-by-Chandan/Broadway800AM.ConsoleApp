@@ -116,6 +116,7 @@ namespace Broadway800AM.App
     {
         public int id { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
     }
 
     public class GenericOne<T1, T2>

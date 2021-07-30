@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.AddIn.Contract" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />

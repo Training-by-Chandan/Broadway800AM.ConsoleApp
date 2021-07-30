@@ -1,6 +1,9 @@
 ﻿//using directive
 using System;
 using Broadway800AM.App.Test;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 //namespace
 namespace Broadway800AM.App
@@ -42,12 +45,80 @@ namespace Broadway800AM.App
 
                 //DynamicStackExample();
 
-                CustomStackGenericExample();
+                //CustomStackGenericExample();
+
+                CollectionExamples();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void CollectionExamples()
+        {
+            //non generic => System.Collections
+
+            Stack st = new Stack();
+            st.Push(10);
+            st.Push("");
+
+            List<string> list = new List<string>();
+            list.Add("");
+
+            var listnew = new List<object>();
+            listnew.Add(10);
+            listnew.Add("");
+            var item1 = listnew[0];
+            var listarr = listnew.ToArray();
+            var newlist = new List<object>(listarr);
+
+            List<string> days = new List<string> { "Sun", "Sunday", "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday", "Sat", "Saturday", "Sun", "Sunday", "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday", "Sat", "Saturday", "Sun", "Sunday", "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday", "Sat", "Saturday", "Sun", "Sunday", "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday", "Sat", "Saturday", "Sun", "Sunday", "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday", "Sat", "Saturday" };
+            //days.Reverse();
+            //var firstday = days[0];
+            //days.Sort();
+            //days.Reverse();
+            //var totalitem = days.Count;
+
+            days.Insert(2, "Chandan");
+            var Sun = (from d in days where !d.Contains("day") select d.ToUpper()); //linq query (language integrated query)
+            // select * from days where d.name='Sun'
+            var name = GenerateDummyData();
+
+            var filteredname = (from n in name where !n.Name.ToUpper().StartsWith("B") select n);
+            var filterednamelambda = name.Where(n => !n.Name.ToUpper().StartsWith("B"));
+
+            var orderedlist = (from k in name orderby k.Name select new { StudentName = k.Name, StudentEmail = k.Email, StudentId = k.id });
+            var orderedListLambda = name.OrderBy(p => p.Name).Select(x => new { StudentName = x.Name, StudentEmail = x.Email });
+
+            foreach (var item in orderedlist)
+            {
+                Console.WriteLine(item.StudentId);
+            }
+        }
+
+        private static List<Student> GenerateDummyData()
+        {
+            var listoStudent = new List<Student>();
+            listoStudent.Add(new Student { id = 1, Name = "Chandan", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 2, Name = "Kasturi", Email = "kasturi@gmail.com" });
+            listoStudent.Add(new Student { id = 3, Name = "Bikash", Email = "bikash@gmail.com" });
+            listoStudent.Add(new Student { id = 4, Name = "Bibek", Email = "Bibek@gmail.com" });
+            listoStudent.Add(new Student { id = 5, Name = "Bijay", Email = "Bijay@gmail.com" });
+            listoStudent.Add(new Student { id = 6, Name = "Saroj", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 7, Name = "Niroj", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 8, Name = "binita", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 9, Name = "Pratik", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 10, Name = "John", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 11, Name = "Charles", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 12, Name = "Tony", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 13, Name = "Steve", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 14, Name = "Nick", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 15, Name = "Barton", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 16, Name = "Natasha", Email = "chandan@gmail.com" });
+            listoStudent.Add(new Student { id = 17, Name = "Bucky", Email = "chandan@gmail.com" });
+
+            return listoStudent;
         }
 
         private static void CustomStackGenericExample()
@@ -226,25 +297,29 @@ namespace Broadway800AM.App
         private static void PolyMorphismExample()
         {
             LivingThings l1 = new LivingThings(20);
-            LivingThings a1 = new Animal();
-            LivingThings p1 = new Plant();
-            LivingThings h1 = new HumanBeing();
-            LivingThings m1 = new Men();
-            LivingThings w1 = new Women();
+            Animal a1 = new Animal();
+            Plant p1 = new Plant();
+            //LivingThings h1 = new HumanBeing();
+            //LivingThings m1 = new Men();
+            //LivingThings w1 = new Women();
 
-            //l1.Eat();
-            //a1.Eat();
-            //p1.Eat();
+            l1.Eat();
+            a1.Eat();
+            p1.Eat();
+
+            l1 = a1;
+            l1.Eat();
+
             //h1.Eat();
             //m1.Eat();
             //w1.Eat();
 
-            Console.WriteLine();
-            l1.Reproduce();
-            Console.WriteLine();
-            a1.Reproduce();
-            Console.WriteLine();
-            h1.Reproduce();
+            //Console.WriteLine();
+            //l1.Reproduce();
+            //Console.WriteLine();
+            //a1.Reproduce();
+            //Console.WriteLine();
+            //h1.Reproduce();
         }
 
         private static void InheritanceExample()

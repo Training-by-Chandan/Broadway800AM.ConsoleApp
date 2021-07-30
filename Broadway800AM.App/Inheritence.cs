@@ -26,6 +26,7 @@ namespace Broadway800AM.App
         public virtual void Eat()
         {
             Console.WriteLine("Living thing can Eat");
+            Console.WriteLine("Type of object is " + this.GetType());
         }
 
         public virtual void Reproduce()
@@ -53,6 +54,7 @@ namespace Broadway800AM.App
         public override void Eat()
         {
             Console.WriteLine("Animal can Eat");
+            Console.WriteLine("Type of object is " + this.GetType());
         }
 
         public void Test()
