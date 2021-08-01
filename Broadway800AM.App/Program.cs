@@ -47,12 +47,41 @@ namespace Broadway800AM.App
 
                 //CustomStackGenericExample();
 
-                CollectionExamples();
+                //CollectionExamples();
+
+                PassByExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void PassByExample()
+        {
+            int a = 10;
+            int b = 20;
+            PassBy.ByValue(a, b);
+            Console.WriteLine($"Using By Value a={a}, b={b}");
+
+            PassBy.ByReference(ref a, ref b);
+            Console.WriteLine($"Using By reference a={a}, b={b}");
+
+            PassBy.ByValue(a, b);
+            Console.WriteLine($"Using By Value a={a}, b={b}");
+
+            PassBy.ByReference(ref a, ref b);
+            Console.WriteLine($"Using By reference a={a}, b={b}");
+            int res = 0;
+
+            PassBy.ByValueInOut(a, b, out a);
+            Console.WriteLine($"Using By Out a={a}, b={b}, res={res}");
+
+            PassBy bp = new PassBy();
+            var name = PassBy.Name;// name is not accessible from object
+
+            var newname = bp.NewName;
+            var getname = bp.GetName;
         }
 
         private static void CollectionExamples()
