@@ -49,12 +49,34 @@ namespace Broadway800AM.App
 
                 //CollectionExamples();
 
-                PassByExample();
+                //PassByExample();
+
+                DelegateAndEventExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void DelegateAndEventExample()
+        {
+            Delegs d = new Delegs();
+            d.DelegateImplementation();
+            d.RaiseEvent(10, 20);
+            d.DoOperation += Add;
+            d.DoOperation += Subtract;
+            d.RaiseEvent(10, 20);
+        }
+
+        public static void Add(int a, int b)
+        {
+            Console.WriteLine($"I am from Program.cs and result is {a + b}");
+        }
+
+        public static void Subtract(int a, int b)
+        {
+            Console.WriteLine($"I am from Program.cs and result is {a - b}");
         }
 
         private static void PassByExample()

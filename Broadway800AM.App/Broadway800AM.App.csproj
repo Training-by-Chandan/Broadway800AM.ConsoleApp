@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
+    <Compile Include="Delegs.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="PassBy.cs" />
