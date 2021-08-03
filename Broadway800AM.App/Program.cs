@@ -51,12 +51,37 @@ namespace Broadway800AM.App
 
                 //PassByExample();
 
-                DelegateAndEventExample();
+                //DelegateAndEventExample();
+
+                ExceptionExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void ExceptionExample()
+        {
+            try
+            {
+                Console.WriteLine("Enter the name");
+                var name = Console.ReadLine();
+                HandleException.ThrowSomeException(name);
+                //HandleException.CodeWithoutHandlingException();
+            }
+            catch (BikashException ex)
+            {
+                Console.WriteLine("Handled Bikash Exception");
+            }
+            catch (KasturiException ex)
+            {
+                Console.WriteLine("Handled Kasturi Exception");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void DelegateAndEventExample()
