@@ -53,12 +53,20 @@ namespace Broadway800AM.App
 
                 //DelegateAndEventExample();
 
-                ExceptionExample();
+                //ExceptionExample();
+
+                FileHandlingExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
             Console.ReadLine();
+        }
+
+        private static void FileHandlingExample()
+        {
+            //FileOperation.DirectoryOperation();
+            FileOperation.FileOps();
         }
 
         private static void ExceptionExample()

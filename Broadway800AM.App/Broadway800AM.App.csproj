@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
     <Compile Include="Delegs.cs" />
+    <Compile Include="FileOperation .cs" />
     <Compile Include="HandleException.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interface.cs" />
