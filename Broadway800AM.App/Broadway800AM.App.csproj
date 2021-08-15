@@ -34,10 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
     <Reference Include="System.AddIn.Contract" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Delegs.cs" />
     <Compile Include="FileOperation .cs" />
     <Compile Include="HandleException.cs" />
