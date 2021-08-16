@@ -55,7 +55,7 @@ namespace Broadway800AM.App
         public static void GetAllPeopleV2()
         {
             SqlConnection connection = new SqlConnection(ConnectionString);
-            var query = "select * from tbl";
+            var query = "select * from vw_studentparentview";
             DataSet ds = new DataSet();
             try
             {
@@ -63,11 +63,14 @@ namespace Broadway800AM.App
                 adapter.Fill(ds);
                 var dt = ds.Tables[0];
                 var rows = dt.Rows.Count;
+                Console.WriteLine($"Student Name \t\t Father Name \t\tMother Name ");
+                Console.WriteLine($"----------------------------------------------------------");
                 for (int i = 0; i < rows; i++)
                 {
-                    var id = dt.Rows[i].ItemArray[0];
-                    var name = dt.Rows[i].ItemArray[1];
-                    Console.WriteLine($"{id}. {name}");
+                    var StudentName = dt.Rows[i].ItemArray[0];
+                    var FatherName = dt.Rows[i].ItemArray[1];
+                    var MotherName = dt.Rows[i].ItemArray[2];
+                    Console.WriteLine($"{StudentName}\t\t{FatherName}\t\t{MotherName}");
                 }
             }
             catch (Exception ex)
@@ -141,6 +144,81 @@ namespace Broadway800AM.App
             {
                 connection.Open();
                 cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void CallStoredProc()
+        {
+            Console.WriteLine("Enter Student name");
+            var studentname = Console.ReadLine();
+            Console.WriteLine("Enter Father name");
+            var fathername = Console.ReadLine();
+            Console.WriteLine("Enter Mother Name");
+            var mothername = Console.ReadLine();
+
+            var query = "sp_createStudentParent";
+
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@studentname", studentname));
+            cmd.Parameters.Add(new SqlParameter("@fathername", fathername));
+            cmd.Parameters.Add(new SqlParameter("@mothername", mothername));
+            try
+            {
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void CallStoredProcV2()
+        {
+            var query = "DemoStroredProc";
+
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            try
+            {
+                connection.Open();
+                adapter.Fill(ds);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    Console.WriteLine("Table " + i);
+                    var dt = ds.Tables[i];
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        Console.Write($"|{dt.Columns[j].ColumnName}\t");
+                    }
+                    Console.WriteLine();
+                    for (int j = 0; j < dt.Rows.Count; j++)
+                    {
+                        for (int k = 0; k < dt.Columns.Count; k++)
+                        {
+                            Console.Write("|" + dt.Rows[j].ItemArray[k] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+                }
             }
             catch (Exception ex)
             {
