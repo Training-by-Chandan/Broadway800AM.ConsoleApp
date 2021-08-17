@@ -67,8 +67,11 @@ namespace Broadway800AM.App
 
         private static void ReadDataFromDatabase()
         {
-            Database.CallStoredProcV2();
+            // Database.CallStoredProcV2();
             //Database.GetAllPeopleV2();
+            DatabaseV2 database = new DatabaseV2();
+            database.Delete();
+            database.GetAll();
         }
 
         private static void FileHandlingExample()
