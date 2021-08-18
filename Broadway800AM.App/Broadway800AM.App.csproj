@@ -57,6 +57,9 @@
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseV2.cs" />
     <Compile Include="Delegs.cs" />
+    <Compile Include="EF\fn_filerbyName_Result.cs">
+      <DependentUpon>OurModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\OurModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

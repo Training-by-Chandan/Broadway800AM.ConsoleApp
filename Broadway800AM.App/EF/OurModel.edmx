@@ -73,6 +73,47 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="MotherName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FatherName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_studentparent_parent">
+          <End Role="parent" Type="Self.parent" Multiplicity="1" />
+          <End Role="studentparent" Type="Self.studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parent">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_studentparent_student">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="studentparent" Type="Self.studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_filerbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="query" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="studentname" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="MotherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="FatherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_createStudentParent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studentname" Type="nvarchar" Mode="In" />
+          <Parameter Name="fathername" Type="nvarchar" Mode="In" />
+          <Parameter Name="mothername" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="OurModelStoreContainer">
           <EntitySet Name="parent" EntityType="Self.parent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
@@ -87,19 +128,19 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
     [vw_studentparentView].[FatherName] AS [FatherName]
     FROM [dbo].[vw_studentparentView] AS [vw_studentparentView]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_studentparent_parent" Association="Self.FK_studentparent_parent">
+            <End Role="parent" EntitySet="parent" />
+            <End Role="studentparent" EntitySet="studentparent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_studentparent_student" Association="Self.FK_studentparent_student">
+            <End Role="student" EntitySet="student" />
+            <End Role="studentparent" EntitySet="studentparent" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OurModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="student_backup">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="orginalId" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="studentparent">
           <Key>
             <PropertyRef Name="id" />
@@ -107,6 +148,8 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="studentid" Type="Int32" Nullable="false" />
           <Property Name="parentid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="parent" Relationship="OurModel.FK_studentparent_parent" FromRole="studentparent" ToRole="parent" />
+          <NavigationProperty Name="student" Relationship="OurModel.FK_studentparent_student" FromRole="studentparent" ToRole="student" />
         </EntityType>
         <EntityType Name="tblnew">
           <Key>
@@ -118,13 +161,29 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="age" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="OurEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="student_backup" EntityType="Self.student_backup" />
           <EntitySet Name="studentparents" EntityType="Self.studentparent" />
           <EntitySet Name="tblnews" EntityType="Self.tblnew" />
           <EntitySet Name="parents" EntityType="OurModel.parent" />
           <EntitySet Name="students" EntityType="OurModel.student" />
           <EntitySet Name="vw_studentparentView" EntityType="OurModel.vw_studentparentView" />
           <EntitySet Name="tbls" EntityType="OurModel.tbl" />
+          <AssociationSet Name="FK_studentparent_parent" Association="OurModel.FK_studentparent_parent">
+            <End Role="parent" EntitySet="parents" />
+            <End Role="studentparent" EntitySet="studentparents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_studentparent_student" Association="OurModel.FK_studentparent_student">
+            <End Role="student" EntitySet="students" />
+            <End Role="studentparent" EntitySet="studentparents" />
+          </AssociationSet>
+          <FunctionImport Name="fn_filerbyName" IsComposable="true" ReturnType="Collection(OurModel.fn_filerbyName_Result)">
+          <Parameter Name="query" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_createStudentParent">
+            <Parameter Name="studentname" Mode="In" Type="String" />
+            <Parameter Name="fathername" Mode="In" Type="String" />
+            <Parameter Name="mothername" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="student_backup" EntityType="OurModel.student_backup" />
         </EntityContainer>
         <EntityType Name="parent">
           <Key>
@@ -133,6 +192,7 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="parentname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parenttype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="studentparents" Relationship="OurModel.FK_studentparent_parent" FromRole="parent" ToRole="studentparent" />
         </EntityType>
         <EntityType Name="student">
           <Key>
@@ -143,6 +203,7 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="gender" Type="Boolean" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="studentparents" Relationship="OurModel.FK_studentparent_student" FromRole="student" ToRole="studentparent" />
         </EntityType>
         <EntityType Name="vw_studentparentView">
           <Key>
@@ -167,21 +228,49 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
           <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="FK_studentparent_parent">
+          <End Type="OurModel.parent" Role="parent" Multiplicity="1" />
+          <End Type="OurModel.studentparent" Role="studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parent">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_studentparent_student">
+          <End Type="OurModel.student" Role="student" Multiplicity="1" />
+          <End Type="OurModel.studentparent" Role="studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="fn_filerbyName_Result">
+          <Property Type="String" Name="studentname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MotherName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FatherName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="student_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orginalId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OurModelStoreContainer" CdmEntityContainer="OurEntities">
-          <EntitySetMapping Name="student_backup">
-            <EntityTypeMapping TypeName="OurModel.student_backup">
-              <MappingFragment StoreEntitySet="student_backup">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="orginalId" ColumnName="orginalId" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="studentparents">
             <EntityTypeMapping TypeName="OurModel.studentparent">
               <MappingFragment StoreEntitySet="studentparent">
@@ -240,6 +329,25 @@ warning 6002: The table/view '730AM.dbo.vw_studentparentView' does not have a pr
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="lastname" ColumnName="lastname" />
                 <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="fn_filerbyName" FunctionName="OurModel.Store.fn_filerbyName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OurModel.fn_filerbyName_Result">
+                <ScalarProperty Name="studentname" ColumnName="studentname" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_createStudentParent" FunctionName="OurModel.Store.sp_createStudentParent" />
+          <EntitySetMapping Name="student_backup">
+            <EntityTypeMapping TypeName="OurModel.student_backup">
+              <MappingFragment StoreEntitySet="student_backup">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="orginalId" ColumnName="orginalId" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

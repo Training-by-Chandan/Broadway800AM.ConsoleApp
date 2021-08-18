@@ -10,15 +10,11 @@
 namespace Broadway800AM.App.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class studentparent
+    public partial class fn_filerbyName_Result
     {
-        public int id { get; set; }
-        public int studentid { get; set; }
-        public int parentid { get; set; }
-    
-        public virtual parent parent { get; set; }
-        public virtual student student { get; set; }
+        public string studentname { get; set; }
+        public string MotherName { get; set; }
+        public string FatherName { get; set; }
     }
 }

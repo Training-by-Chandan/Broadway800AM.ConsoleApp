@@ -5,13 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="39b5b3ad827141b1bef9811ee74a7e8e" Name="Diagram1">
-        <EntityTypeShape EntityType="OurModel.student_backup" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OurModel.studentparent" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OurModel.tblnew" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OurModel.parent" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="OurModel.student" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OurModel.student" Width="1.5" PointX="2.75" PointY="0.875" />
         <EntityTypeShape EntityType="OurModel.vw_studentparentView" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="OurModel.tbl" Width="1.5" PointX="5.375" PointY="3.75" />
+        <AssociationConnector Association="OurModel.FK_studentparent_parent" />
+        <AssociationConnector Association="OurModel.FK_studentparent_student" />
+        <EntityTypeShape EntityType="OurModel.student_backup" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

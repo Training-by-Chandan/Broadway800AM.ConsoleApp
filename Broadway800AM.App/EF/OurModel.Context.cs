@@ -12,6 +12,8 @@ namespace Broadway800AM.App.EF
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OurEntities : DbContext
     {
@@ -25,12 +27,39 @@ namespace Broadway800AM.App.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<student_backup> student_backup { get; set; }
         public virtual DbSet<studentparent> studentparents { get; set; }
         public virtual DbSet<tblnew> tblnews { get; set; }
         public virtual DbSet<parent> parents { get; set; }
         public virtual DbSet<student> students { get; set; }
         public virtual DbSet<vw_studentparentView> vw_studentparentView { get; set; }
         public virtual DbSet<tbl> tbls { get; set; }
+        public virtual DbSet<student_backup> student_backup { get; set; }
+    
+        [DbFunction("OurEntities", "fn_filerbyName")]
+        public virtual IQueryable<fn_filerbyName_Result> fn_filerbyName(string query)
+        {
+            var queryParameter = query != null ?
+                new ObjectParameter("query", query) :
+                new ObjectParameter("query", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_filerbyName_Result>("[OurEntities].[fn_filerbyName](@query)", queryParameter);
+        }
+    
+        public virtual int sp_createStudentParent(string studentname, string fathername, string mothername)
+        {
+            var studentnameParameter = studentname != null ?
+                new ObjectParameter("studentname", studentname) :
+                new ObjectParameter("studentname", typeof(string));
+    
+            var fathernameParameter = fathername != null ?
+                new ObjectParameter("fathername", fathername) :
+                new ObjectParameter("fathername", typeof(string));
+    
+            var mothernameParameter = mothername != null ?
+                new ObjectParameter("mothername", mothername) :
+                new ObjectParameter("mothername", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createStudentParent", studentnameParameter, fathernameParameter, mothernameParameter);
+        }
     }
 }

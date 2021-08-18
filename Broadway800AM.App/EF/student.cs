@@ -14,10 +14,19 @@ namespace Broadway800AM.App.EF
     
     public partial class student
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public student()
+        {
+            this.studentparents = new HashSet<studentparent>();
+        }
+    
         public int id { get; set; }
         public string studentname { get; set; }
         public string email { get; set; }
         public bool gender { get; set; }
         public bool status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<studentparent> studentparents { get; set; }
     }
 }

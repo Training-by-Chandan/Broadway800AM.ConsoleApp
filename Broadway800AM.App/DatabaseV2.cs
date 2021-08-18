@@ -98,5 +98,45 @@ namespace Broadway800AM.App
                 Console.WriteLine($"{item.studentname}\t{item.FatherName}\t{item.MotherName}");
             }
         }
+
+        public void NavProp()
+        {
+            Console.WriteLine("Enter the student id");
+            var id = Convert.ToInt32(Console.ReadLine());
+
+            var student = db.students.Find(id);
+
+            var parent = student.studentparents.Select(p => p.parent);
+            foreach (var item in parent)
+            {
+                var type = item.parenttype == 0 ? "Father" : "Mother";
+                Console.WriteLine($"{item.parentname}");
+            }
+        }
+
+        public void CallProc()
+        {
+            Console.WriteLine("Enter Student name");
+            var studentname = Console.ReadLine();
+            Console.WriteLine("Enter Father name");
+            var fathername = Console.ReadLine();
+            Console.WriteLine("Enter Mother Name");
+            var mothername = Console.ReadLine();
+
+            db.sp_createStudentParent(studentname, fathername, mothername);
+        }
+
+        public void CallFunction()
+        {
+            Console.WriteLine("Enter filter");
+            var query = Console.ReadLine();
+
+            var result = db.fn_filerbyName(query);
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.studentname} {item.FatherName}, {item.MotherName}");
+            }
+        }
     }
 }
