@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Broadway800AM.App.CF;
 using Broadway800AM.App.EF;
 
 namespace Broadway800AM.App
@@ -10,6 +11,7 @@ namespace Broadway800AM.App
     public class DatabaseV2
     {
         public OurEntities db = new OurEntities();
+        public MyContext mydb = new MyContext();
 
         public void GetAll()
         {
@@ -137,6 +139,18 @@ namespace Broadway800AM.App
             {
                 Console.WriteLine($"{item.studentname} {item.FatherName}, {item.MotherName}");
             }
+        }
+
+        public void AddPeople()
+        {
+            var people = new People()
+            {
+                Address = "Ktm",
+                Name = "Chandan"
+            };
+            mydb.Peoples.Add(people);
+            db.SaveChanges();
+            var peoples = mydb.Peoples.ToList();
         }
     }
 }

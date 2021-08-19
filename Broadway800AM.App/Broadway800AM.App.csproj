@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
+    <Compile Include="CF\MyContext.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseV2.cs" />
     <Compile Include="Delegs.cs" />
@@ -100,6 +101,23 @@
     <Compile Include="HandleException.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interface.cs" />
+    <Compile Include="Migrations\202108190208024_initialMigration.cs" />
+    <Compile Include="Migrations\202108190208024_initialMigration.designer.cs">
+      <DependentUpon>202108190208024_initialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108190216311_updated.cs" />
+    <Compile Include="Migrations\202108190216311_updated.designer.cs">
+      <DependentUpon>202108190216311_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108190224085_teachers.cs" />
+    <Compile Include="Migrations\202108190224085_teachers.designer.cs">
+      <DependentUpon>202108190224085_teachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108190238112_subjectAdded.cs" />
+    <Compile Include="Migrations\202108190238112_subjectAdded.designer.cs">
+      <DependentUpon>202108190238112_subjectAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PassBy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +150,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108190208024_initialMigration.resx">
+      <DependentUpon>202108190208024_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190216311_updated.resx">
+      <DependentUpon>202108190216311_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190224085_teachers.resx">
+      <DependentUpon>202108190224085_teachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190238112_subjectAdded.resx">
+      <DependentUpon>202108190238112_subjectAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
