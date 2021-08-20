@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,11 @@ namespace Broadway800AM.App.CF
         public DbSet<People> Peoples { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+
+        public virtual ObjectResult<Teacher> DemoStoredProc()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Teacher>("DemoStroredProcNew");
+        }
     }
 
     public class People
@@ -47,6 +54,8 @@ namespace Broadway800AM.App.CF
         public string Email { get; set; }
         public bool Status { get; set; } = true;
         public DateTime DateofJoining { get; set; }
+
+        public ICollection<Subject> Subjects { get; set; }
     }
 
     public class Subject

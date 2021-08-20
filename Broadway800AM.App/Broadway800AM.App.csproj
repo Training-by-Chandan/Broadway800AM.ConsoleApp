@@ -117,6 +117,14 @@
     <Compile Include="Migrations\202108190238112_subjectAdded.designer.cs">
       <DependentUpon>202108190238112_subjectAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108200155553_storedproc.cs" />
+    <Compile Include="Migrations\202108200155553_storedproc.designer.cs">
+      <DependentUpon>202108200155553_storedproc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108200202371_updateproc.cs" />
+    <Compile Include="Migrations\202108200202371_updateproc.designer.cs">
+      <DependentUpon>202108200202371_updateproc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PassBy.cs" />
     <Compile Include="Program.cs" />
@@ -163,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108190238112_subjectAdded.resx">
       <DependentUpon>202108190238112_subjectAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200155553_storedproc.resx">
+      <DependentUpon>202108200155553_storedproc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200202371_updateproc.resx">
+      <DependentUpon>202108200202371_updateproc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

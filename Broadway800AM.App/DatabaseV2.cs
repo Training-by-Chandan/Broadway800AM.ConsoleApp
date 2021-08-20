@@ -151,6 +151,7 @@ namespace Broadway800AM.App
             mydb.Peoples.Add(people);
             db.SaveChanges();
             var peoples = mydb.Peoples.ToList();
+            var demostroredpro = mydb.DemoStoredProc();
         }
     }
 }
