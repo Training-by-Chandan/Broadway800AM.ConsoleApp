@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Broadway.Desktop.UI.Admin;
+using Broadway.Desktop.UI.Student;
+using Broadway.Desktop.UI.Teacher;
+using Broadway.Desktop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -13,6 +17,8 @@ namespace Broadway.Desktop
 {
     public partial class Form1 : Form
     {
+        private Service.UserService user = new Service.UserService();
+
         public Form1()
         {
             InitializeComponent();
@@ -20,23 +26,36 @@ namespace Broadway.Desktop
 
         private void btnClick_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            var login = new LoginViewModel() { Username = this.txtUsername.Text, Password = this.txtPassword.Text };
+            var result = user.Login(login);
+            if (result.Status)
             {
-                MessageBox.Show("Username cannot be blank");
-            }
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                MessageBox.Show("Password cannot be blank");
-            }
-            if (txtUsername.Text == "Chandan" && txtPassword.Text == "Test@123")
-            {
-                ANewForm newform = new ANewForm();
-                newform.Show();
+                switch (result.Role)
+                {
+                    case Data.Models.Roles.Student:
+                        StudentParent student = new StudentParent();
+                        student.Show();
+                        break;
+
+                    case Data.Models.Roles.Teacher:
+                        TeacherParent teacher = new TeacherParent();
+                        teacher.Show();
+                        break;
+
+                    case Data.Models.Roles.Admin:
+                        AdminParent admin = new AdminParent();
+                        admin.Show();
+                        break;
+
+                    default:
+                        break;
+                }
+
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Username or password did not match");
+                MessageBox.Show(result.Message);
             }
         }
 
@@ -46,20 +65,9 @@ namespace Broadway.Desktop
             this.txtUsername.Text = "";
         }
 
-        private void btnClone_Click(object sender, EventArgs e)
-        {
-            Form1 f = new Form1();
-            f.Show();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = ConfigurationManager.AppSettings["AppName"];
-        }
-
-        private void Form1_Move(object sender, EventArgs e)
-        {
-            this.lblMove.Text = $"X={this.Location.X}, Y={this.Location.Y}";
         }
     }
 }

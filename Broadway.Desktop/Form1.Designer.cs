@@ -35,8 +35,6 @@ namespace Broadway.Desktop
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnClone = new System.Windows.Forms.Button();
-            this.lblMove = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -98,34 +96,11 @@ namespace Broadway.Desktop
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnClone
-            // 
-            this.btnClone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClone.Location = new System.Drawing.Point(118, 136);
-            this.btnClone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClone.Name = "btnClone";
-            this.btnClone.Size = new System.Drawing.Size(155, 35);
-            this.btnClone.TabIndex = 6;
-            this.btnClone.Text = "Clone";
-            this.btnClone.UseVisualStyleBackColor = true;
-            this.btnClone.Click += new System.EventHandler(this.btnClone_Click);
-            // 
-            // lblMove
-            // 
-            this.lblMove.AutoSize = true;
-            this.lblMove.Location = new System.Drawing.Point(12, 172);
-            this.lblMove.Name = "lblMove";
-            this.lblMove.Size = new System.Drawing.Size(51, 20);
-            this.lblMove.TabIndex = 7;
-            this.lblMove.Text = "label3";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 201);
-            this.Controls.Add(this.lblMove);
-            this.Controls.Add(this.btnClone);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
@@ -137,7 +112,7 @@ namespace Broadway.Desktop
             this.Name = "Form1";
             this.Text = "Broadway App";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Move += new System.EventHandler(this.Form1_Move);
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,8 +126,6 @@ namespace Broadway.Desktop
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnClone;
-        private System.Windows.Forms.Label lblMove;
     }
 }
 
