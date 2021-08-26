@@ -1,4 +1,5 @@
 ﻿using Broadway.Desktop.Data;
+using Broadway.Desktop.Data.Models;
 using Broadway.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,39 @@ namespace Broadway.Desktop.Service
                     {
                         res.Message = "Password does not match.";
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+            }
+            return res;
+        }
+
+        public LoginResponseViewModel CreateUser(UserViewModel model)
+        {
+            var res = new LoginResponseViewModel();
+            try
+            {
+                if (db.Users.Any(p => p.Email == model.Email))
+                {
+                    res.Message = "User is already present";
+                }
+                else
+                {
+                    var user = new User()
+                    {
+                        Email = model.Email,
+                        Password = model.Password,
+                        Role = model.Role
+                    };
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
+                    res.UserId = user.Id;
+                    res.Role = user.Role;
+                    res.Status = true;
+                    res.Message = "User added successfully";
                 }
             }
             catch (Exception ex)
