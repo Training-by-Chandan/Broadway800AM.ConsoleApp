@@ -26,7 +26,7 @@ namespace Broadway.Desktop.UI.Admin
             ClearTextFields();
         }
 
-        void ClearTextFields()
+        private void ClearTextFields()
         {
             NameText.Text = string.Empty;
             DOBDate.Value = DateTime.Now;
@@ -52,8 +52,12 @@ namespace Broadway.Desktop.UI.Admin
                 if (res.Status)
                 {
                     ClearTextFields();
+                    LoadData();
                 }
-                MessageBox.Show(res.Message);
+                else
+                {
+                    MessageBox.Show(res.Message);
+                }
             }
         }
 
@@ -64,6 +68,74 @@ namespace Broadway.Desktop.UI.Admin
                 return true;
             }
             return false;
+        }
+
+        private void LoadData(string searchstr = "")
+        {
+            studentDataGrid.DataSource = student.GetAllStudentList(searchstr);
+            studentDataGrid.Refresh();
+        }
+
+        private void StudentCreate_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            LoadData(SearchText.Text);
+        }
+
+        private void studentDataGrid_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (studentDataGrid.SelectedRows.Count > 0)
+            {
+                //loaded the data in text fields
+                var selectedRow = studentDataGrid.SelectedRows[0];
+                labelid.Text = selectedRow.Cells["Id"].Value.ToString();
+                NameText.Text = selectedRow.Cells["Name"].Value.ToString();
+                AddressText.Text = selectedRow.Cells["Address"].Value.ToString();
+                DOBDate.Value = Convert.ToDateTime(selectedRow.Cells["Dob"].Value.ToString());
+
+                //remove the create and clear and add edit and delete button
+                CreateBtn.Visible = false;
+                ClearBtn.Visible = false;
+                EditBtn.Visible = true;
+                DeleteBtn.Visible = true;
+            }
+        }
+
+        private void studentDataGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (studentDataGrid.SelectedRows.Count == 0)
+            {
+                ClearTextFields();
+
+                //remove the edit and delete button and addd create and clear button
+                CreateBtn.Visible = true;
+                ClearBtn.Visible = true;
+                EditBtn.Visible = false;
+                DeleteBtn.Visible = false;
+            }
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(labelid.Text);
+            var res = student.DeleteStudent(id);
+            if (res.Status)
+            {
+                LoadData();
+                studentDataGrid_MouseClick(null, null);
+            }
+            else
+            {
+                MessageBox.Show(res.Message);
+            }
         }
     }
 }
