@@ -30,10 +30,11 @@ namespace Broadway.Desktop.UI.Admin
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelid = new System.Windows.Forms.Label();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.ConfirmText = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Confirmlbl = new System.Windows.Forms.Label();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.CreateBtn = new System.Windows.Forms.Button();
             this.DOBDate = new System.Windows.Forms.DateTimePicker();
@@ -41,26 +42,27 @@ namespace Broadway.Desktop.UI.Admin
             this.EmailText = new System.Windows.Forms.TextBox();
             this.AddressText = new System.Windows.Forms.TextBox();
             this.NameText = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Emaillbl = new System.Windows.Forms.Label();
+            this.Passwordlbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.studentDataGrid = new System.Windows.Forms.DataGridView();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.SearchText = new System.Windows.Forms.TextBox();
-            this.labelid = new System.Windows.Forms.Label();
+            this.ResetBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ResetBtn);
             this.groupBox1.Controls.Add(this.labelid);
             this.groupBox1.Controls.Add(this.DeleteBtn);
             this.groupBox1.Controls.Add(this.EditBtn);
             this.groupBox1.Controls.Add(this.ConfirmText);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.Confirmlbl);
             this.groupBox1.Controls.Add(this.ClearBtn);
             this.groupBox1.Controls.Add(this.CreateBtn);
             this.groupBox1.Controls.Add(this.DOBDate);
@@ -68,8 +70,8 @@ namespace Broadway.Desktop.UI.Admin
             this.groupBox1.Controls.Add(this.EmailText);
             this.groupBox1.Controls.Add(this.AddressText);
             this.groupBox1.Controls.Add(this.NameText);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.Emaillbl);
+            this.groupBox1.Controls.Add(this.Passwordlbl);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -79,6 +81,15 @@ namespace Broadway.Desktop.UI.Admin
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student";
+            // 
+            // labelid
+            // 
+            this.labelid.AutoSize = true;
+            this.labelid.Location = new System.Drawing.Point(717, 88);
+            this.labelid.Name = "labelid";
+            this.labelid.Size = new System.Drawing.Size(0, 25);
+            this.labelid.TabIndex = 17;
+            this.labelid.Visible = false;
             // 
             // DeleteBtn
             // 
@@ -110,14 +121,14 @@ namespace Broadway.Desktop.UI.Admin
             this.ConfirmText.Size = new System.Drawing.Size(431, 30);
             this.ConfirmText.TabIndex = 14;
             // 
-            // label6
+            // Confirmlbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(717, 209);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 25);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Confirm Password";
+            this.Confirmlbl.AutoSize = true;
+            this.Confirmlbl.Location = new System.Drawing.Point(717, 209);
+            this.Confirmlbl.Name = "Confirmlbl";
+            this.Confirmlbl.Size = new System.Drawing.Size(171, 25);
+            this.Confirmlbl.TabIndex = 13;
+            this.Confirmlbl.Text = "Confirm Password";
             // 
             // ClearBtn
             // 
@@ -175,23 +186,23 @@ namespace Broadway.Desktop.UI.Admin
             this.NameText.Size = new System.Drawing.Size(493, 30);
             this.NameText.TabIndex = 5;
             // 
-            // label4
+            // Emaillbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Email";
+            this.Emaillbl.AutoSize = true;
+            this.Emaillbl.Location = new System.Drawing.Point(21, 162);
+            this.Emaillbl.Name = "Emaillbl";
+            this.Emaillbl.Size = new System.Drawing.Size(60, 25);
+            this.Emaillbl.TabIndex = 4;
+            this.Emaillbl.Text = "Email";
             // 
-            // label5
+            // Passwordlbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 206);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 25);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Password";
+            this.Passwordlbl.AutoSize = true;
+            this.Passwordlbl.Location = new System.Drawing.Point(21, 206);
+            this.Passwordlbl.Name = "Passwordlbl";
+            this.Passwordlbl.Size = new System.Drawing.Size(98, 25);
+            this.Passwordlbl.TabIndex = 3;
+            this.Passwordlbl.Text = "Password";
             // 
             // label3
             // 
@@ -249,14 +260,16 @@ namespace Broadway.Desktop.UI.Admin
             this.SearchText.Size = new System.Drawing.Size(920, 30);
             this.SearchText.TabIndex = 3;
             // 
-            // labelid
+            // ResetBtn
             // 
-            this.labelid.AutoSize = true;
-            this.labelid.Location = new System.Drawing.Point(717, 88);
-            this.labelid.Name = "labelid";
-            this.labelid.Size = new System.Drawing.Size(0, 25);
-            this.labelid.TabIndex = 17;
-            this.labelid.Visible = false;
+            this.ResetBtn.Location = new System.Drawing.Point(722, 268);
+            this.ResetBtn.Name = "ResetBtn";
+            this.ResetBtn.Size = new System.Drawing.Size(244, 49);
+            this.ResetBtn.TabIndex = 18;
+            this.ResetBtn.Text = "Reset Password";
+            this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.Visible = false;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // StudentCreate
             // 
@@ -270,7 +283,7 @@ namespace Broadway.Desktop.UI.Admin
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StudentCreate";
-            this.Text = "StudentCreate";
+            this.Text = "Student Managment";
             this.Load += new System.EventHandler(this.StudentCreate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -283,13 +296,13 @@ namespace Broadway.Desktop.UI.Admin
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Emaillbl;
+        private System.Windows.Forms.Label Passwordlbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ConfirmText;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Confirmlbl;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button CreateBtn;
         private System.Windows.Forms.DateTimePicker DOBDate;
@@ -303,5 +316,6 @@ namespace Broadway.Desktop.UI.Admin
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Label labelid;
+        private System.Windows.Forms.Button ResetBtn;
     }
 }

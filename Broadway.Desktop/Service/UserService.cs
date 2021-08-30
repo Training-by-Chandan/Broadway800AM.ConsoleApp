@@ -78,5 +78,49 @@ namespace Broadway.Desktop.Service
             }
             return res;
         }
+
+        public ResponseViewModel ResetPassword(string Email)
+        {
+            var res = new ResponseViewModel();
+
+            try
+            {
+                var existingUser = db.Users.FirstOrDefault(p => p.Email.ToLower() == Email.ToLower());
+                if (existingUser == null)
+                {
+                    res.Message = "Email does not exists";
+                }
+                else
+                {
+                    existingUser.Password = RandomString(8);
+                    db.Entry(existingUser).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+
+                    //todo : email jaane code
+                    var subject = "Password Reset";
+                    var content = $"Hi {Email}, \nYour new password is {existingUser.Password}. \n\n Please login to continue.";
+
+                    var emailres = EmailService.SendEmail(Email, content, subject);
+
+                    res.Status = true;
+                    res.Message = "Password changed successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+            }
+
+            return res;
+        }
+
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }

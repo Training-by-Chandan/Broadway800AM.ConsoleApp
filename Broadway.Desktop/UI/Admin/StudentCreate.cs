@@ -15,6 +15,7 @@ namespace Broadway.Desktop.UI.Admin
     public partial class StudentCreate : Form
     {
         private StudentService student = new StudentService();
+        private UserService user = new UserService();
 
         public StudentCreate()
         {
@@ -96,12 +97,21 @@ namespace Broadway.Desktop.UI.Admin
                 NameText.Text = selectedRow.Cells["Name"].Value.ToString();
                 AddressText.Text = selectedRow.Cells["Address"].Value.ToString();
                 DOBDate.Value = Convert.ToDateTime(selectedRow.Cells["Dob"].Value.ToString());
+                EmailText.Text = selectedRow.Cells["Email"].Value.ToString();
 
                 //remove the create and clear and add edit and delete button
                 CreateBtn.Visible = false;
                 ClearBtn.Visible = false;
+                EmailText.Visible = false;
+                PasswordText.Visible = false;
+                ConfirmText.Visible = false;
+                Emaillbl.Visible = false;
+                Passwordlbl.Visible = false;
+                Confirmlbl.Visible = false;
+
                 EditBtn.Visible = true;
                 DeleteBtn.Visible = true;
+                ResetBtn.Visible = true;
             }
         }
 
@@ -114,8 +124,16 @@ namespace Broadway.Desktop.UI.Admin
                 //remove the edit and delete button and addd create and clear button
                 CreateBtn.Visible = true;
                 ClearBtn.Visible = true;
+                EmailText.Visible = true;
+                PasswordText.Visible = true;
+                ConfirmText.Visible = true;
+                Emaillbl.Visible = true;
+                Passwordlbl.Visible = true;
+                Confirmlbl.Visible = true;
+
                 EditBtn.Visible = false;
                 DeleteBtn.Visible = false;
+                ResetBtn.Visible = false;
             }
         }
 
@@ -135,6 +153,19 @@ namespace Broadway.Desktop.UI.Admin
             else
             {
                 MessageBox.Show(res.Message);
+            }
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Are you sure?", "Reset Password", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                var result=user.ResetPassword(EmailText.Text);
+
+                MessageBox.Show(result.Message);
+
+                //call reset password
             }
         }
     }
