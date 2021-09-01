@@ -31,7 +31,8 @@ namespace Broadway.Desktop.Service
                         Address = model.Address,
                         DOB = model.Dob,
                         Name = model.Name,
-                        UserId = userRes.UserId
+                        UserId = userRes.UserId,
+                        Gender = model.Gender
                     };
                     db.Students.Add(student);
                     db.SaveChanges();
@@ -59,7 +60,8 @@ namespace Broadway.Desktop.Service
                 Dob = p.DOB,
                 Email = p.User == null ? "" : p.User.Email,
                 Id = p.Id,
-                Name = p.Name
+                Name = p.Name, 
+                Gender=p.Gender
             });
             if (!string.IsNullOrWhiteSpace(searchStr))
             {

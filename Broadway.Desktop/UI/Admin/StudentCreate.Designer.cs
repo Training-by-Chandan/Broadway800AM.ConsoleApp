@@ -30,6 +30,7 @@ namespace Broadway.Desktop.UI.Admin
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ResetBtn = new System.Windows.Forms.Button();
             this.labelid = new System.Windows.Forms.Label();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
@@ -50,13 +51,20 @@ namespace Broadway.Desktop.UI.Admin
             this.studentDataGrid = new System.Windows.Forms.DataGridView();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.SearchText = new System.Windows.Forms.TextBox();
-            this.ResetBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.otherGender = new System.Windows.Forms.RadioButton();
+            this.femaleGender = new System.Windows.Forms.RadioButton();
+            this.maleGender = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGrid)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.ResetBtn);
             this.groupBox1.Controls.Add(this.labelid);
             this.groupBox1.Controls.Add(this.DeleteBtn);
@@ -81,6 +89,17 @@ namespace Broadway.Desktop.UI.Admin
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student";
+            // 
+            // ResetBtn
+            // 
+            this.ResetBtn.Location = new System.Drawing.Point(722, 268);
+            this.ResetBtn.Name = "ResetBtn";
+            this.ResetBtn.Size = new System.Drawing.Size(244, 49);
+            this.ResetBtn.TabIndex = 18;
+            this.ResetBtn.Text = "Reset Password";
+            this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.Visible = false;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // labelid
             // 
@@ -174,7 +193,7 @@ namespace Broadway.Desktop.UI.Admin
             // 
             // AddressText
             // 
-            this.AddressText.Location = new System.Drawing.Point(191, 83);
+            this.AddressText.Location = new System.Drawing.Point(191, 104);
             this.AddressText.Name = "AddressText";
             this.AddressText.Size = new System.Drawing.Size(493, 30);
             this.AddressText.TabIndex = 7;
@@ -207,7 +226,7 @@ namespace Broadway.Desktop.UI.Admin
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 86);
+            this.label3.Location = new System.Drawing.Point(21, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 25);
             this.label3.TabIndex = 2;
@@ -260,16 +279,58 @@ namespace Broadway.Desktop.UI.Admin
             this.SearchText.Size = new System.Drawing.Size(920, 30);
             this.SearchText.TabIndex = 3;
             // 
-            // ResetBtn
+            // label4
             // 
-            this.ResetBtn.Location = new System.Drawing.Point(722, 268);
-            this.ResetBtn.Name = "ResetBtn";
-            this.ResetBtn.Size = new System.Drawing.Size(244, 49);
-            this.ResetBtn.TabIndex = 18;
-            this.ResetBtn.Text = "Reset Password";
-            this.ResetBtn.UseVisualStyleBackColor = true;
-            this.ResetBtn.Visible = false;
-            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(717, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 25);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Gender";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.otherGender);
+            this.groupBox2.Controls.Add(this.femaleGender);
+            this.groupBox2.Controls.Add(this.maleGender);
+            this.groupBox2.Location = new System.Drawing.Point(948, 73);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(432, 70);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            // 
+            // otherGender
+            // 
+            this.otherGender.AutoSize = true;
+            this.otherGender.Location = new System.Drawing.Point(315, 36);
+            this.otherGender.Name = "otherGender";
+            this.otherGender.Size = new System.Drawing.Size(92, 29);
+            this.otherGender.TabIndex = 25;
+            this.otherGender.TabStop = true;
+            this.otherGender.Text = "Others";
+            this.otherGender.UseVisualStyleBackColor = true;
+            // 
+            // femaleGender
+            // 
+            this.femaleGender.AutoSize = true;
+            this.femaleGender.Location = new System.Drawing.Point(175, 36);
+            this.femaleGender.Name = "femaleGender";
+            this.femaleGender.Size = new System.Drawing.Size(98, 29);
+            this.femaleGender.TabIndex = 24;
+            this.femaleGender.TabStop = true;
+            this.femaleGender.Text = "Female";
+            this.femaleGender.UseVisualStyleBackColor = true;
+            // 
+            // maleGender
+            // 
+            this.maleGender.AutoSize = true;
+            this.maleGender.Location = new System.Drawing.Point(26, 36);
+            this.maleGender.Name = "maleGender";
+            this.maleGender.Size = new System.Drawing.Size(76, 29);
+            this.maleGender.TabIndex = 23;
+            this.maleGender.TabStop = true;
+            this.maleGender.Text = "Male";
+            this.maleGender.UseVisualStyleBackColor = true;
             // 
             // StudentCreate
             // 
@@ -288,6 +349,8 @@ namespace Broadway.Desktop.UI.Admin
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGrid)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +380,10 @@ namespace Broadway.Desktop.UI.Admin
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Label labelid;
         private System.Windows.Forms.Button ResetBtn;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton otherGender;
+        private System.Windows.Forms.RadioButton femaleGender;
+        private System.Windows.Forms.RadioButton maleGender;
+        private System.Windows.Forms.Label label4;
     }
 }

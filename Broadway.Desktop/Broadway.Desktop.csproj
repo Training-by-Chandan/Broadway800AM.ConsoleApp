@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DefaultContext.cs" />
+    <Compile Include="Data\Models\Classes.cs" />
     <Compile Include="Data\Models\Roles.cs" />
     <Compile Include="Data\Models\Student.cs" />
     <Compile Include="Data\Models\User.cs" />
@@ -75,9 +76,18 @@
     <Compile Include="Migrations\202108260209043_studentAdded.designer.cs">
       <DependentUpon>202108260209043_studentAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109010204465_studentgender.cs" />
+    <Compile Include="Migrations\202109010204465_studentgender.designer.cs">
+      <DependentUpon>202109010204465_studentgender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109010226201_classAdded.cs" />
+    <Compile Include="Migrations\202109010226201_classAdded.designer.cs">
+      <DependentUpon>202109010226201_classAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ClassService.cs" />
     <Compile Include="Service\EmailService.cs" />
     <Compile Include="Service\StudentService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -86,6 +96,12 @@
     </Compile>
     <Compile Include="UI\Admin\AdminParent.Designer.cs">
       <DependentUpon>AdminParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\ClassManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\ClassManagement.Designer.cs">
+      <DependentUpon>ClassManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Admin\StudentCreate.cs">
       <SubType>Form</SubType>
@@ -105,6 +121,7 @@
     <Compile Include="UI\Teacher\TeacherParent.Designer.cs">
       <DependentUpon>TeacherParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ClassListViewModel.cs" />
     <Compile Include="ViewModels\LoginResponseViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
@@ -121,6 +138,12 @@
     <EmbeddedResource Include="Migrations\202108260209043_studentAdded.resx">
       <DependentUpon>202108260209043_studentAdded.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010204465_studentgender.resx">
+      <DependentUpon>202109010204465_studentgender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010226201_classAdded.resx">
+      <DependentUpon>202109010226201_classAdded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -133,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Admin\AdminParent.resx">
       <DependentUpon>AdminParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Admin\ClassManagement.resx">
+      <DependentUpon>ClassManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Admin\StudentCreate.resx">
       <DependentUpon>StudentCreate.cs</DependentUpon>

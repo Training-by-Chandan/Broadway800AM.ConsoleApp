@@ -1,4 +1,5 @@
-﻿using Broadway.Desktop.Service;
+﻿using Broadway.Desktop.Data.Models;
+using Broadway.Desktop.Service;
 using Broadway.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -47,8 +48,10 @@ namespace Broadway.Desktop.UI.Admin
                     Dob = DOBDate.Value,
                     Email = EmailText.Text,
                     Name = NameText.Text,
-                    Password = PasswordText.Text
+                    Password = PasswordText.Text,
+                    Gender = maleGender.Checked ? Gender.Male : femaleGender.Checked ? Gender.Female : Gender.Others
                 };
+
                 var res = student.CreateStudent(studentModel);
                 if (res.Status)
                 {
@@ -161,7 +164,7 @@ namespace Broadway.Desktop.UI.Admin
             var res = MessageBox.Show("Are you sure?", "Reset Password", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                var result=user.ResetPassword(EmailText.Text);
+                var result = user.ResetPassword(EmailText.Text);
 
                 MessageBox.Show(result.Message);
 

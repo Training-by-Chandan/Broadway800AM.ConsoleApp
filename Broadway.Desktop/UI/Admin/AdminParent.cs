@@ -23,5 +23,12 @@ namespace Broadway.Desktop.UI.Admin
             sc.MdiParent = this;
             sc.Show();
         }
+
+        private void classManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassManagement sc = new ClassManagement();
+            sc.MdiParent = this;
+            sc.Show();
+        }
     }
 }
