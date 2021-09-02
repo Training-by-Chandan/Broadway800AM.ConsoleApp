@@ -62,10 +62,10 @@ namespace Broadway.Desktop.Service
         {
             var list = new List<StudentListViewModel>();
 
-            var existingClass = db.Students.Where(p => p.ClassId == id);
+            var existingClass = db.Class.Find(id); ;
             if (existingClass != null)
             {
-                var students = existingClass.Select(p => new StudentListViewModel
+                var students = existingClass.Students.Select(p => new StudentListViewModel
                 {
                     Address = p.Address,
                     Dob = p.DOB,
@@ -78,6 +78,12 @@ namespace Broadway.Desktop.Service
             }
 
             return list;
+        }
+
+        public List<string> GetAllClassName()
+        {
+            var data = db.Class.Select(p => p.Class);
+            return data.ToList();
         }
     }
 }

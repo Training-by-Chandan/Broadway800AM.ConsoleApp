@@ -17,5 +17,6 @@ namespace Broadway.Desktop.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Classes> Class { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
     }
 }

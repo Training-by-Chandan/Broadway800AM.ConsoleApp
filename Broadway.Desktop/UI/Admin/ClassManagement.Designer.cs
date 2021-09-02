@@ -31,8 +31,8 @@ namespace Broadway.Desktop.UI.Admin
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ClassNameText = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CreateBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
             this.classGrid = new System.Windows.Forms.DataGridView();
             this.studentGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.classGrid)).BeginInit();
@@ -45,7 +45,7 @@ namespace Broadway.Desktop.UI.Admin
             this.label1.Location = new System.Drawing.Point(34, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.Size = new System.Drawing.Size(62, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Class";
             // 
@@ -53,26 +53,28 @@ namespace Broadway.Desktop.UI.Admin
             // 
             this.ClassNameText.Location = new System.Drawing.Point(131, 48);
             this.ClassNameText.Name = "ClassNameText";
-            this.ClassNameText.Size = new System.Drawing.Size(534, 26);
+            this.ClassNameText.Size = new System.Drawing.Size(534, 30);
             this.ClassNameText.TabIndex = 1;
             // 
-            // button1
+            // CreateBtn
             // 
-            this.button1.Location = new System.Drawing.Point(476, 118);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 52);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CreateBtn.Location = new System.Drawing.Point(476, 118);
+            this.CreateBtn.Name = "CreateBtn";
+            this.CreateBtn.Size = new System.Drawing.Size(189, 52);
+            this.CreateBtn.TabIndex = 2;
+            this.CreateBtn.Text = "Create";
+            this.CreateBtn.UseVisualStyleBackColor = true;
+            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
             // 
-            // button2
+            // ClearBtn
             // 
-            this.button2.Location = new System.Drawing.Point(261, 118);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 52);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ClearBtn.Location = new System.Drawing.Point(261, 118);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(189, 52);
+            this.ClearBtn.TabIndex = 3;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // classGrid
             // 
@@ -97,17 +99,17 @@ namespace Broadway.Desktop.UI.Admin
             // 
             // ClassManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 562);
             this.Controls.Add(this.studentGrid);
             this.Controls.Add(this.classGrid);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.CreateBtn);
             this.Controls.Add(this.ClassNameText);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClassManagement";
             this.Text = "ClassManagement";
             this.Load += new System.EventHandler(this.ClassManagement_Load);
@@ -122,8 +124,8 @@ namespace Broadway.Desktop.UI.Admin
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ClassNameText;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CreateBtn;
+        private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.DataGridView classGrid;
         private System.Windows.Forms.DataGridView studentGrid;
     }

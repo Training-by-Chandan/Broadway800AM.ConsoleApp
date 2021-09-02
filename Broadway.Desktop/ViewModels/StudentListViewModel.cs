@@ -11,5 +11,6 @@ namespace Broadway.Desktop.ViewModels
         public string Address { get; set; }
         public string Email { get; set; }
         public Gender? Gender { get; set; }
+        public string Class { get; set; }
     }
 }

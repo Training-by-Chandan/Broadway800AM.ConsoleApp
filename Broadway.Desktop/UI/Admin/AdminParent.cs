@@ -30,5 +30,12 @@ namespace Broadway.Desktop.UI.Admin
             sc.MdiParent = this;
             sc.Show();
         }
+
+        private void subjectManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SubjectManagement sc = new SubjectManagement();
+            sc.MdiParent = this;
+            sc.Show();
+        }
     }
 }

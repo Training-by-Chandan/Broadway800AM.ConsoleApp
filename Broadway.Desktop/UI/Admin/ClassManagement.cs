@@ -43,5 +43,32 @@ namespace Broadway.Desktop.UI.Admin
                 studentGrid.Refresh();
             }
         }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            Clearfields();
+        }
+
+        private void Clearfields()
+        {
+            ClassNameText.Text = string.Empty;
+        }
+
+        private void CreateBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(ClassNameText.Text))
+            {
+                var res = classService.CreateClass(ClassNameText.Text);
+                if (res.Status)
+                {
+                    Clearfields();
+                    LoadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Name cannot be blank");
+            }
+        }
     }
 }

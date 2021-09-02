@@ -26,13 +26,21 @@ namespace Broadway.Desktop.Service
                 var userRes = us.CreateUser(uvm);
                 if (userRes.Status)
                 {
+                    int? clsid = null;
+                    var cls = db.Class.FirstOrDefault(p => p.Class == model.ClassName);
+                    if (cls != null)
+                    {
+                        clsid = cls.Id;
+                    }
+
                     var student = new Student()
                     {
                         Address = model.Address,
                         DOB = model.Dob,
                         Name = model.Name,
                         UserId = userRes.UserId,
-                        Gender = model.Gender
+                        Gender = model.Gender,
+                        ClassId = clsid
                     };
                     db.Students.Add(student);
                     db.SaveChanges();
@@ -60,8 +68,9 @@ namespace Broadway.Desktop.Service
                 Dob = p.DOB,
                 Email = p.User == null ? "" : p.User.Email,
                 Id = p.Id,
-                Name = p.Name, 
-                Gender=p.Gender
+                Name = p.Name,
+                Gender = p.Gender,
+                Class = p.Class == null ? "" : p.Class.Class
             });
             if (!string.IsNullOrWhiteSpace(searchStr))
             {

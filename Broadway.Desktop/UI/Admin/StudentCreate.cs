@@ -17,6 +17,7 @@ namespace Broadway.Desktop.UI.Admin
     {
         private StudentService student = new StudentService();
         private UserService user = new UserService();
+        private ClassService classService = new ClassService();
 
         public StudentCreate()
         {
@@ -49,7 +50,8 @@ namespace Broadway.Desktop.UI.Admin
                     Email = EmailText.Text,
                     Name = NameText.Text,
                     Password = PasswordText.Text,
-                    Gender = maleGender.Checked ? Gender.Male : femaleGender.Checked ? Gender.Female : Gender.Others
+                    Gender = maleGender.Checked ? Gender.Male : femaleGender.Checked ? Gender.Female : Gender.Others,
+                    ClassName = ClassCmb.SelectedItem.ToString()
                 };
 
                 var res = student.CreateStudent(studentModel);
@@ -78,6 +80,9 @@ namespace Broadway.Desktop.UI.Admin
         {
             studentDataGrid.DataSource = student.GetAllStudentList(searchstr);
             studentDataGrid.Refresh();
+
+            ClassCmb.DataSource = classService.GetAllClassName();
+            ClassCmb.Refresh();
         }
 
         private void StudentCreate_Load(object sender, EventArgs e)
