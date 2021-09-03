@@ -10,5 +10,10 @@ namespace Broadway.Desktop.ViewModels
     {
         public string Username { get; set; }
         public string Password { get; set; }
+
+        public string HashedPwd
+        {
+            get { return Hashes.CreateMd5Hash(Password); }
+        }
     }
 }

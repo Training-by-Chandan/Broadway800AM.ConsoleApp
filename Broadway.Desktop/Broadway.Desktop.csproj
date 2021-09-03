@@ -69,6 +69,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hashes.cs" />
     <Compile Include="Migrations\202108240210192_userAdded.cs" />
     <Compile Include="Migrations\202108240210192_userAdded.designer.cs">
       <DependentUpon>202108240210192_userAdded.cs</DependentUpon>
@@ -88,6 +89,18 @@
     <Compile Include="Migrations\202109020246291_subjectAdded.cs" />
     <Compile Include="Migrations\202109020246291_subjectAdded.designer.cs">
       <DependentUpon>202109020246291_subjectAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109030217348_addedpwdhash.cs" />
+    <Compile Include="Migrations\202109030217348_addedpwdhash.designer.cs">
+      <DependentUpon>202109030217348_addedpwdhash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109030228166_removedpassword.cs" />
+    <Compile Include="Migrations\202109030228166_removedpassword.designer.cs">
+      <DependentUpon>202109030228166_removedpassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109030236043_test.cs" />
+    <Compile Include="Migrations\202109030236043_test.designer.cs">
+      <DependentUpon>202109030236043_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -159,6 +172,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109020246291_subjectAdded.resx">
       <DependentUpon>202109020246291_subjectAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109030217348_addedpwdhash.resx">
+      <DependentUpon>202109030217348_addedpwdhash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109030228166_removedpassword.resx">
+      <DependentUpon>202109030228166_removedpassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109030236043_test.resx">
+      <DependentUpon>202109030236043_test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

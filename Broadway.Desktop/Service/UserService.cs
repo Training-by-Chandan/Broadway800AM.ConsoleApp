@@ -26,7 +26,7 @@ namespace Broadway.Desktop.Service
                 }
                 else
                 {
-                    if (existingUser.Password == model.Password)
+                    if (existingUser.HashPwd == model.HashedPwd)
                     {
                         res.Status = true;
                         res.Role = existingUser.Role;
@@ -60,7 +60,7 @@ namespace Broadway.Desktop.Service
                     var user = new User()
                     {
                         Email = model.Email,
-                        Password = model.Password,
+                        HashPwd = model.HashedPwd,
                         Role = model.Role
                     };
                     db.Users.Add(user);
@@ -92,13 +92,14 @@ namespace Broadway.Desktop.Service
                 }
                 else
                 {
-                    existingUser.Password = RandomString(8);
+                    var passwordtext = RandomString(8);
+                    existingUser.HashPwd = Hashes.CreateMd5Hash(passwordtext);
                     db.Entry(existingUser).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
-                    //todo : email jaane code
+                    //email jaane code
                     var subject = "Password Reset";
-                    var content = $"Hi {Email}, \nYour new password is {existingUser.Password}. \n\n Please login to continue.";
+                    var content = $"Hi {Email}, \nYour new password is {passwordtext}. \n\n Please login to continue.";
 
                     var emailres = EmailService.SendEmail(Email, content, subject);
 
