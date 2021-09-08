@@ -50,7 +50,7 @@ namespace Broadway.Desktop.UI.Admin
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1551, 33);
+            this.menuStrip.Size = new System.Drawing.Size(1551, 36);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -59,7 +59,7 @@ namespace Broadway.Desktop.UI.Admin
             this.studentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageStudentToolStripMenuItem});
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(89, 32);
             this.studentToolStripMenuItem.Text = "Student";
             // 
             // manageStudentToolStripMenuItem
@@ -74,7 +74,7 @@ namespace Broadway.Desktop.UI.Admin
             this.classToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.classManagementToolStripMenuItem});
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(68, 32);
             this.classToolStripMenuItem.Text = "Class";
             // 
             // classManagementToolStripMenuItem
@@ -89,7 +89,7 @@ namespace Broadway.Desktop.UI.Admin
             this.subjectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.subjectManagementToolStripMenuItem});
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
-            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
+            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(86, 32);
             this.subjectToolStripMenuItem.Text = "Subject";
             // 
             // subjectManagementToolStripMenuItem
@@ -110,6 +110,7 @@ namespace Broadway.Desktop.UI.Admin
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminParent";
             this.Text = "AdminParent";
+            this.Load += new System.EventHandler(this.AdminParent_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

@@ -15,6 +15,7 @@ namespace Broadway.Desktop.UI.Admin
         public AdminParent()
         {
             InitializeComponent();
+            var name = Properties.Settings.Default.Name;
         }
 
         private void manageStudentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +37,11 @@ namespace Broadway.Desktop.UI.Admin
             SubjectManagement sc = new SubjectManagement();
             sc.MdiParent = this;
             sc.Show();
+        }
+
+        private void AdminParent_Load(object sender, EventArgs e)
+        {
+            this.Text = Properties.Settings.Default.Name + " - " + Properties.Settings.Default.Email;
         }
     }
 }

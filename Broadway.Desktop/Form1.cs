@@ -69,5 +69,22 @@ namespace Broadway.Desktop
         {
             this.Text = ConfigurationManager.AppSettings["AppName"];
         }
+
+        private int secretCount = 0;
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            secretCount++;
+            if (secretCount == 5)
+            {
+                SecretForm s = new SecretForm();
+                s.Show();
+            }
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            secretCount = 0;
+        }
     }
 }

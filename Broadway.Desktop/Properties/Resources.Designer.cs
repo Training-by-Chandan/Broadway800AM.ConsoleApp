@@ -69,5 +69,14 @@ namespace Broadway.Desktop.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MY value.
+        /// </summary>
+        internal static string TestString {
+            get {
+                return ResourceManager.GetString("TestString", resourceCulture);
+            }
+        }
     }
 }

@@ -1,7 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Broadway.Desktop.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Chandan</Value>
+    </Setting>
+    <Setting Name="Email" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Chandan.Bhagat@outlook.com</Value>
+    </Setting>
+    <Setting Name="DefaultConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=DESKTOP-C25RLDB\SQLEXPRESS;Initial Catalog=730App;integrated security=true;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

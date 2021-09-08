@@ -54,7 +54,7 @@ namespace Broadway.Desktop
             this.txtUsername.Location = new System.Drawing.Point(188, 26);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(421, 26);
+            this.txtUsername.Size = new System.Drawing.Size(421, 35);
             this.txtUsername.TabIndex = 1;
             // 
             // label1
@@ -62,16 +62,17 @@ namespace Broadway.Desktop
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(33, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.Size = new System.Drawing.Size(108, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Pasword";
             // 
@@ -81,7 +82,7 @@ namespace Broadway.Desktop
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(421, 26);
+            this.txtPassword.Size = new System.Drawing.Size(421, 35);
             this.txtPassword.TabIndex = 3;
             // 
             // btnClear
@@ -98,7 +99,7 @@ namespace Broadway.Desktop
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 201);
             this.Controls.Add(this.btnClear);
@@ -112,7 +113,7 @@ namespace Broadway.Desktop
             this.Name = "Form1";
             this.Text = "Broadway App";
             this.Load += new System.EventHandler(this.Form1_Load);
-           
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
