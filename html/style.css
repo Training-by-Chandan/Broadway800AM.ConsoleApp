@@ -1,0 +1,19 @@
+body{
+    background-color: #616161;
+    height: 100%;
+    width: 100%;
+    border-color:black;
+}
+.block{
+    background-color: #ff7575;
+    border-style: dashed;
+    border-color: white ;
+    border-radius: 10px;
+    height: 10%;
+    margin-top: 0.5%;
+    height: 50px;
+}
+
+.height20{
+    height: 20px !important;
+}

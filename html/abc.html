@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ABC</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container" id="containerid">
+        <input type="text" id="content" />
+        <div class="alert alert-danger" id="id1"></div>
+    </div>
+
+    <div class="testing" id="id2"></div>
+    <div class="testing"></div>
+    <div></div>
+    <div>
+        <button class="test" id="id1"></button>
+        <button class="test" id="id2"></button>
+        <button id="id3">Button 3</button>
+        <a href="index.html">To index page</a>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    // $(document).ready(docready);
+
+    // function docready() {
+    //     alert("all good and loaded");
+    // }
+
+    $(document).ready(function () {
+
+        $('button.test').html("Hello There!");
+
+        $('button#id1').on('click', function () {
+            //alert("button is clicked");
+
+            $('div#id1').html($('input#content').val());
+        });
+
+        $('input#content').on('keyup', function () {
+            $('div#id1').html($('input#content').val());
+            $('button#id1').html($('input#content').val());
+
+        });
+
+    });
+
+    function buttonclicked() {
+        alert("button is clicked");
+    }
+
+</script>
+
+</html>
