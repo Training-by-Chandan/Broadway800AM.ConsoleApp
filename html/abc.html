@@ -6,12 +6,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
 
 <body>
     <div class="container" id="containerid">
+        <input type="text" id="content" />
+        <input type="date" id="content" />
+        <input type="number" id="content" />
+        <input type="email" id="content" />
+        <input type="email" id="content" />
+        <input type="email" id="content" />
+        <input type="number" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
+        <input type="text" id="content" />
         <input type="text" id="content" />
         <div class="alert alert-danger" id="id1"></div>
     </div>
@@ -29,8 +43,25 @@
     <div></div>
     <div></div>
     <div></div>
+
+    <div class="card" id="mycard">
+        <div class="card-header">Buttons</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" id="maincardcontent">
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script>
     // $(document).ready(docready);
 
@@ -46,6 +77,10 @@
             //alert("button is clicked");
 
             $('div#id1').html($('input#content').val());
+        });
+
+        $('button#id1').on('click', function () {
+            $('div#maincardcontent').html($('div#containerid').clone())
         });
 
         $('input#content').on('keyup', function () {
