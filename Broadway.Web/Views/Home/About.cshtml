@@ -1,8 +1,17 @@
 ﻿@{
-    ViewBag.Title = "About";
-    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    ViewBag.Title = "About Page";
+
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+@section Footer
+{
+
+    @Html.Partial("~/Views/Partial/_PartialPage1.cshtml")
+
+    <div class="jumbotron">
+        <h1>About From Section Footer</h1>
+    </div>
+}

@@ -13,5 +13,10 @@ namespace Broadway.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult IndexNew()
+        {
+            return View("~/Views/Home/Contact.cshtml");
+        }
     }
 }

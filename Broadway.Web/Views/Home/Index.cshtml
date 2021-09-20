@@ -1,8 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Broadway Home Page";
+    ViewBag.Test = "Some test string";
+    ViewBag.Kasturi = "";
+    ViewBag.Bikash = "";
 }
 
 <div class="jumbotron">
     <h1>Broadway</h1>
-  
 </div>
+@section Footer
+{
+
+    @Html.Partial("~/Views/Partial/_PartialPage1.cshtml")
+
+    <div class="jumbotron">
+        <h1>Broadway From Section Footer</h1>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            alert("Page is ready to view");
+        })
+    </script>
+    }
+
+<div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div><div class="alert alert-success" role="alert">...</div>
