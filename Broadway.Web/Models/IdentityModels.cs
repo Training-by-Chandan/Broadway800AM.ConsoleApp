@@ -29,5 +29,8 @@ namespace Broadway.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
     }
 }

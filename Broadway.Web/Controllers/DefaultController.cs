@@ -9,7 +9,20 @@ namespace Broadway.Web.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
-        public ActionResult Index()
+        public ActionResult Index(int? i, string name)
+        {
+            ViewBag.Num = i;
+            ViewBag.Name = name;
+            return View();
+        }
+
+        public ActionResult SearchPage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchResultPage(string search)
         {
             return View();
         }

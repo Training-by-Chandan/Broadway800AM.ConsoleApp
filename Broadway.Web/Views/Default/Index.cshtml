@@ -3,5 +3,11 @@
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<h2>Index from Default Controller</h2>
+<h2>Index from Default Controller I am @ViewBag.Name with value @ViewBag.Num</h2>
 <h1>We are learning ASP.NET</h1>
+
+<form action="@Url.Action("Index","Default")" method="get">
+    <input type="text" placeholder="name" name="name" />
+    <input type="number" placeholder="number" name="i"/>
+    <input type="submit" value="Submit" />
+</form>
