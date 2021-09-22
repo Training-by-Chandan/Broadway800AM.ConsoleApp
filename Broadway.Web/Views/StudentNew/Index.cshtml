@@ -1,0 +1,42 @@
+﻿@model List<Broadway.Web.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<a href="/StudentNew/Create">Create New Student</a>
+@if (Model == null)
+{
+    <div class="row">
+        <span class="alert alert-info">No data found!!!!</span>
+    </div>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <a href="/StudentNew/Edit/@item.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

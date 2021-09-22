@@ -1,0 +1,28 @@
+﻿@model Broadway.Web.ViewModels.SomeViewModel
+
+@{
+    ViewBag.Title = "SomeNewPageV2";
+}
+
+<h2>SomeNewPageV2</h2>
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-lg-3">Id</div>
+        <div class="col-lg-9">@Model.Id</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">Name</div>
+        <div class="col-lg-9">@Model.Name</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">Address</div>
+        <div class="col-lg-9">@Model.Address</div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <span class="alert alert-danger">No Record Found!!!</span>
+    </div>
+}

@@ -1,0 +1,15 @@
+﻿@model Broadway.Web.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="/StudentNew/Edit" method="post">
+    <input type="hidden" value="@Model.Id" name="id" />
+    <input type="text" value="@Model.Name" name="name" />
+    <input type="text" value="@Model.Address" name="address" />
+    <input type="text" value="@Model.Email" name="email" />
+    <input type="submit" value="edit" />
+</form>
