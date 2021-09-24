@@ -26,16 +26,18 @@ namespace Broadway.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string name, string email, string address)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Student student)
         {
-            var student = new Student()
+            if (ModelState.IsValid)
             {
-                Address = address,
-                Email = email,
-                Name = name
-            };
-            db.Students.Add(student);
-            db.SaveChanges();
+                db.Students.Add(student);
+                db.SaveChanges();
+            }
+            else
+            {
+                return View(student);
+            }
 
             return RedirectToAction("Index");
         }
