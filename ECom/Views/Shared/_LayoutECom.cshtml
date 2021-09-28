@@ -79,6 +79,10 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+
+               
+                    @Html.Partial("_LoginPartial")
+                
                
             </ul>
         </nav>
@@ -148,5 +152,6 @@
     <script src="~/Themes/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Themes/dist/js/pages/dashboard.js"></script>
+    @RenderSection("scripts", required:false)
 </body>
 </html>

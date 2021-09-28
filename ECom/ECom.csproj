@@ -2211,6 +2211,7 @@
     <Content Include="Themes\plugins\summernote\summernote.js.map" />
     <Content Include="Themes\plugins\summernote\summernote.min.js.map" />
     <Content Include="Themes\plugins\toastr\toastr.js.map" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
