@@ -1,40 +1,45 @@
 ﻿@model List<ECom.ViewModels.ProductsViewModel>
 
+@if (Request.IsAuthenticated)
+{
+    <div class="row">
+        <span class="alert alert-info">This is authenticated</span>
+    </div>
+}
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-sm-6 col-md-4 col-lg-3">
-           <div class="card">
-               <div class="card-body">
-                  
-                       <h4 class="text-center"><span class="label label-info">@item.Name</span></h4>
-                       <img src="@item.Picture" class="img-responsive" style="width:100%;">
-                       <div class="caption">
-                           <div class="row">
-                               <div class="col-md-6 col-xs-6">
-                                   <h3>@item.Name</h3>
-                               </div>
-                               <div class="col-md-6 col-xs-6 price">
-                                   <h3>
-                                       <label>$749.00</label>
-                                   </h3>
-                               </div>
-                           </div>
-                           <p>@item.Description</p>
-                           <div class="row">
-                               <div class="col-md-6">
-                                   <a class="btn btn-primary btn-product" style="width:100%;"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
-                               </div>
-                               <div class="col-md-6">
-                                   <a href="#" class="btn btn-success btn-product" style="width:100%;"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a>
-                               </div>
-                           </div>
+            <div class="card">
+                <div class="card-body">
 
-                           <p> </p>
-                       </div>
-                   </div>
-               
-           </div>
+                    <h4 class="text-center"><span class="label label-info">@item.Name</span></h4>
+                    <img src="@item.Picture" class="img-responsive" style="width:100%;">
+                    <div class="caption">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <h3>@item.Name</h3>
+                            </div>
+                            <div class="col-md-6 col-xs-6 price">
+                                <h3>
+                                    <label>$749.00</label>
+                                </h3>
+                            </div>
+                        </div>
+                        <p>@item.Description</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-product" style="width:100%;"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-success btn-product" style="width:100%;"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a>
+                            </div>
+                        </div>
+
+                        <p> </p>
+                    </div>
+                </div>
+            </div>
         </div>
     }
 </div>

@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace ECom.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var data = ViewModels.ProductsViewModel.GenerateDummyData();
