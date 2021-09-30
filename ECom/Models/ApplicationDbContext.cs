@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace ECom.Models
 {
@@ -13,5 +14,7 @@ namespace ECom.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Vendor> Vendors { get; set; }
     }
 }

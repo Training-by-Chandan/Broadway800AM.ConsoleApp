@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ECom.Areas.Vendor.Controllers
 {
+    [Authorize(Roles = StringParams.Roles.Vendor)]
     public class DashboardController : Controller
     {
         // GET: Vendor/Dashboard
