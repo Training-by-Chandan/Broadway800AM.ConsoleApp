@@ -16,5 +16,7 @@ namespace ECom.Models
         }
 
         public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
