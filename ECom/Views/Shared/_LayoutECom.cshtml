@@ -38,15 +38,11 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
+
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+                @Html.Action("FetchMenu", "Home")
             </ul>
 
             <!-- Right navbar links -->
@@ -73,30 +69,24 @@
                     </div>
                 </li>
 
-           
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
 
-               
-                    @Html.Partial("_LoginPartial")
-                
-               
+                @Html.Partial("_LoginPartial")
             </ul>
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          
+
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                
+
                     @RenderBody()
                 </div><!-- /.container-fluid -->
             </section>
@@ -152,6 +142,6 @@
     <script src="~/Themes/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Themes/dist/js/pages/dashboard.js"></script>
-    @RenderSection("scripts", required:false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

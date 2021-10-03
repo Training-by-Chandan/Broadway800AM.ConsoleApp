@@ -43,7 +43,8 @@ namespace ECom.Areas.Vendor.Controllers
                     CategoryId = model.CategoryId,
                     Description = model.Description,
                     PicturePath = "/Uploaded/Product/" + file,
-                    VendorId = vendorId
+                    VendorId = vendorId, 
+                    Price=model.Price
                 };
                 db.Products.Add(product);
                 db.SaveChanges();

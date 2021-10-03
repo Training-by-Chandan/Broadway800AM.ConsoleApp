@@ -224,6 +224,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Services\MenuServices.cs" />
+    <Compile Include="Services\ProductServices.cs" />
     <Compile Include="StringParams.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -2271,6 +2273,7 @@
     <Content Include="Themes\plugins\summernote\summernote.min.js.map" />
     <Content Include="Themes\plugins\toastr\toastr.js.map" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LeftMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
