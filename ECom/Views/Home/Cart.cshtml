@@ -1,0 +1,30 @@
+﻿@model List<ECom.ViewModels.SessionItemDetailsViewModel>
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2>Items in your Cart</h2>
+
+@if (Model != null)
+{
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-12">
+              <div class="row">
+
+                <div class="col-lg-2">@item.Name </div>
+                <div class="col-lg-2"><img src="@item.Picture" width="100px" height="100px" /> </div>
+                <div class="col-lg-2">@item.Price </div>
+                <div class="col-lg-2">@item.Quantity </div>
+                <div class="col-lg-2">@item.Total </div>
+              </div>
+            </div>
+        }
+        @{
+            double amount = Model.Sum(p => p.Total);
+        }
+        <span>Total = @amount</span>
+    </div>
+}

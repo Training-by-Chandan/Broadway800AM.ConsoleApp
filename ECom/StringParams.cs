@@ -12,5 +12,10 @@ namespace ECom
             public const string Admin = "Admin";
             public const string Vendor = "Vendor";
         }
+
+        public class SessionName
+        {
+            public const string CartItem = "CartItem";
+        }
     }
 }

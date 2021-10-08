@@ -29,10 +29,10 @@
                         <p>@item.Description</p>
                         <div class="row">
                             <div class="col-md-6">
-                                <a class="btn btn-primary btn-product" style="width:100%;"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
+                                <a class="btn btn-primary btn-product" style="width:100%;">Like <i class="fa fa-thumbs-up"></i></a>
                             </div>
                             <div class="col-md-6">
-                                <a href="#" class="btn btn-success btn-product" style="width:100%;"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a>
+                                <a href="@Url.Action("AddToCart","Home",new { id=item.Id })" class="btn btn-success btn-product" style="width:100%;"> Add to Cart <i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
 

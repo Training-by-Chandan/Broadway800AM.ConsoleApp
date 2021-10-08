@@ -74,6 +74,19 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Cart","Home")">
+                        <i class="fas fa-shopping-cart"></i>
+                        @{
+                            var item = Session[StringParams.SessionName.CartItem] as ECom.ViewModels.SessionViewModel;
+                            if (item != null)
+                            {
+                                <span class="badge badge-danger navbar-badge">@item.GetTotalCount()</span>
+
+                            }
+                        }
+                    </a>
+                </li>
 
                 @Html.Partial("_LoginPartial")
             </ul>

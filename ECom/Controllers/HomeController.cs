@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECom.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +7,6 @@ using System.Web.Mvc;
 
 namespace ECom.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private Services.ProductServices products = new Services.ProductServices();
@@ -43,6 +43,32 @@ namespace ECom.Controllers
         {
             var data = products.GetAllProducts(name);
             return View("Index", data);
+        }
+
+        public ActionResult AddToCart(Guid Id)
+        {
+            var sessionItem = Session[StringParams.SessionName.CartItem] as SessionViewModel;
+            if (sessionItem == null)
+            {
+                sessionItem = new SessionViewModel();
+            }
+            sessionItem.AddProductToSession(Id);
+
+            Session[StringParams.SessionName.CartItem] = sessionItem;
+
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public ActionResult Cart()
+        {
+            var sessionItem = Session[StringParams.SessionName.CartItem] as SessionViewModel;
+            if (sessionItem == null)
+            {
+                sessionItem = new SessionViewModel();
+            }
+            var data = products.GetDetails(sessionItem.Lists);
+            return View(data);
         }
     }
 }
