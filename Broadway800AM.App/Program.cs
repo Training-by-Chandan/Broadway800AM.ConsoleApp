@@ -57,7 +57,11 @@ namespace Broadway800AM.App
 
                 //FileHandlingExample();
 
-                ReadDataFromDatabase();
+                //ReadDataFromDatabase();
+
+                //BasketBallExample();
+
+                ArrayTesterPlusOneExample();
 
                 Console.WriteLine("Do you want to continue more(y/n)?");
                 res = Console.ReadLine();
@@ -72,6 +76,20 @@ namespace Broadway800AM.App
             DatabaseV2 database = new DatabaseV2();
             database.CallFunction();
             //database.GetAll();
+        }
+
+        private static void ArrayTesterPlusOneExample()
+        {
+            ArrayPlusOneTester b = new ArrayPlusOneTester();
+            b.GetInput();
+            b.Calculate();
+        }
+
+        private static void BasketBallExample()
+        {
+            BasketBallGame b = new BasketBallGame();
+            b.GetInput();
+            b.Calculate();
         }
 
         private static void FileHandlingExample()

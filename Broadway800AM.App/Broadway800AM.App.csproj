@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
+    <Compile Include="ArrayPlusOneTester.cs" />
+    <Compile Include="BasketBallGame.cs" />
     <Compile Include="CF\MyContext.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseV2.cs" />
