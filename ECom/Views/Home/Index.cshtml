@@ -43,3 +43,34 @@
         </div>
     }
 </div>
+<div class="row">
+    <button class="btn btn-primary" id="loadmore">Load More</button>
+  
+</div>
+<div class="row">
+
+    <div id="loaded"></div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#loadmore').on('click', function () {
+                $.ajax({
+                    url: '/api/products/getproducts',
+                    method: 'get',
+                    
+                    error: function() {
+                     alert("there is an error");
+
+                    }
+                }).done(function (data) {
+                    data.forEach(a => {
+                        $('#loaded').append('<div class="row"><span class="alert alert-danger">'+a.Name+', '+a.Price+'</span></div>');
+                    });
+                   // alert("i got product");
+                });
+            });
+        });
+    </script>
+    }
