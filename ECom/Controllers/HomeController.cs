@@ -41,6 +41,10 @@ namespace ECom.Controllers
 
         public ActionResult Categories(string name)
         {
+            if (name=="")
+            {
+                throw new Exception("test");
+            }
             var data = products.GetAllProducts(name);
             return View("Index", data);
         }
