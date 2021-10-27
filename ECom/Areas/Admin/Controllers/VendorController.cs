@@ -9,9 +9,19 @@ using System.Web.Mvc;
 
 namespace ECom.Areas.Admin.Controllers
 {
-    [Authorize(Roles = StringParams.Roles.Admin)]
+    //VendorController vc=new VendorController();
+
+    //VendorController vc=new VendorController(vendorService); Dependency we are injecting inside controller
+    // [Authorize(Roles = StringParams.Roles.Admin)]
     public class VendorController : Controller
     {
+        private readonly IVendorService _vendor;
+
+        public VendorController(IVendorService vendor)
+        {
+            this._vendor = vendor;
+        }
+
         // GET: Admin/Vendor
         public ActionResult Index()
         {
@@ -28,8 +38,7 @@ namespace ECom.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var vendor = new VendorService();
-                var res = await vendor.CreateVendor(model);
+                var res = await _vendor.CreateVendor(model);
                 if (res.Status)
                 {
                     return RedirectToAction("Index");

@@ -10,7 +10,7 @@ using System.Web;
 
 namespace ECom.Areas.Admin.Services
 {
-    public class VendorService
+    public class VendorService : IVendorService
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private UserManager<ApplicationUser> _userManager;
@@ -57,5 +57,10 @@ namespace ECom.Areas.Admin.Services
 
             return res;
         }
+    }
+
+    public interface IVendorService
+    {
+        Task<ResponeViewModel> CreateVendor(VendorCreateViewModel model);
     }
 }
