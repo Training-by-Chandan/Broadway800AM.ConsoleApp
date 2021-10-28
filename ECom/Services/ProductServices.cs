@@ -7,7 +7,7 @@ using ECom.ViewModels;
 
 namespace ECom.Services
 {
-    public class ProductServices
+    public class ProductServices : IProductService
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -66,5 +66,12 @@ namespace ECom.Services
 
             return res;
         }
+    }
+
+    public interface IProductService
+    {
+        List<ViewModels.SessionItemDetailsViewModel> GetDetails(List<ViewModels.SessionItemsViewModel> items);
+
+        List<ViewModels.ProductsViewModel> GetAllProducts(string categoryName = "");
     }
 }

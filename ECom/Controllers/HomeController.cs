@@ -1,4 +1,5 @@
-﻿using ECom.ViewModels;
+﻿using ECom.Services;
+using ECom.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,18 @@ namespace ECom.Controllers
 {
     public class HomeController : Controller
     {
-        private Services.ProductServices products = new Services.ProductServices();
-        private Services.MenuServices menu = new Services.MenuServices();
+        private ISomeService SomeService;
+        private ITestService TestService;
+
+        public HomeController(ITestService testService, IProductService productService, IMenuServices menuServices)
+        {
+            this.TestService = testService;
+            this.products = productService;
+            this.menu = menuServices;
+        }
+
+        private IProductService products;
+        private IMenuServices menu;
 
         [AllowAnonymous]
         public ActionResult Index()
@@ -41,7 +52,7 @@ namespace ECom.Controllers
 
         public ActionResult Categories(string name)
         {
-            if (name=="")
+            if (name == "")
             {
                 throw new Exception("test");
             }

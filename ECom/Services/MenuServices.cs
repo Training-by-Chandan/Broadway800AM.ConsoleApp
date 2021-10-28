@@ -6,7 +6,12 @@ using System.Web;
 
 namespace ECom.Services
 {
-    public class MenuServices
+    public interface IMenuServices
+    {
+        List<string> GetParentCategories();
+    }
+
+    public class MenuServices : IMenuServices
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

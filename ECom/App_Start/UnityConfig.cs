@@ -1,4 +1,5 @@
 using ECom.Areas.Admin.Services;
+using ECom.Services;
 using System;
 
 using Unity;
@@ -46,6 +47,10 @@ namespace ECom
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IVendorService, VendorService>();
+            container.RegisterType<ISomeService, SomeService>();
+            container.RegisterType<ITestService, SomeService>();
+            container.RegisterType<IProductService, ProductServices>();
+            container.RegisterType<IMenuServices, MenuServices>();
         }
     }
 }

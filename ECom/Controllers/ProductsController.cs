@@ -9,11 +9,19 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ECom.Models;
+using ECom.Services;
 
 namespace ECom.Controllers
 {
     public class ProductsController : ApiController
     {
+        private IMenuServices menu;
+
+        public ProductsController(IMenuServices menuServices)
+        {
+            this.menu = menuServices;
+        }
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Products
