@@ -1,0 +1,27 @@
+<form [formGroup]="testForm" (ngSubmit)="Create()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" formControlName="loanTitle" aria-describedby="emailHelp"
+      placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Description</label>
+    <textarea class="form-control" formControlName="loanDescription" placeholder="Description"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data">
+      <td>{{d.loanTitle}}</td>
+      <td>{{d.loanDescription}}</td>
+    </tr>
+</table>

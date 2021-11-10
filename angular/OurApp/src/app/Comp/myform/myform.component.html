@@ -1,0 +1,30 @@
+<div>
+  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="email">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<div class="row">
+  <label>{{str}}</label>
+
+</div>
+
+<div class="row">
+  <button (click)="GetAllLoans()">Click to get All Loans</button>
+</div>
+<div class="row">
+  <div class="col-12" *ngFor="let d of data.payload">
+    <label>{{d.loanTitle}}</label>
+  </div>
+</div>
