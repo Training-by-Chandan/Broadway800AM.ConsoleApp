@@ -232,6 +232,7 @@
     <Compile Include="Areas\Vendor\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Vendor\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Vendor\VendorAreaRegistration.cs" />
+    <Compile Include="Arithmetic.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
